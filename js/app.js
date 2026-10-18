@@ -3,28 +3,79 @@
  * Interactive Dashboard, Weekly Modules, CA1 Checklist, and Transcripts Hub
  */
 
+// --- Safe Storage Wrapper ---
+const safeStorage = {
+  get(key, fallback) {
+    try {
+      const val = localStorage.getItem(key);
+      return val ? JSON.parse(val) : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  },
+  getString(key, fallback) {
+    try {
+      return localStorage.getItem(key) || fallback;
+    } catch (e) {
+      return fallback;
+    }
+  },
+  set(key, val) {
+    try {
+      localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val));
+    } catch (e) {
+      console.warn('Storage write error:', e);
+    }
+  }
+};
+
 // --- Application State ---
 const state = {
   activeView: 'overview',
-  theme: localStorage.getItem('dep_theme') || 'dark',
-  checklist: JSON.parse(localStorage.getItem('dep_ca1_checklist')) || COURSE_DATA.ca1.checklist,
-  userTranscripts: JSON.parse(localStorage.getItem('dep_user_transcripts')) || {},
+  theme: safeStorage.getString('dep_theme', 'dark'),
+  checklist: safeStorage.get('dep_ca1_checklist', COURSE_DATA.ca1.checklist),
+  userTranscripts: safeStorage.get('dep_user_transcripts', {}),
   searchQuery: '',
   weekFilter: 'all'
 };
 
-// --- DOM Ready Initialization ---
-document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  initCountdown();
-  renderOverview();
-  renderWeeklyModules();
-  renderCA1Section();
-  renderTranscriptsHub();
-  renderGlossary();
-  setupEventListeners();
-  updateProgressStats();
-});
+// --- Navigation & View Switching ---
+function switchView(viewId) {
+  if (!viewId) viewId = 'overview';
+  state.activeView = viewId;
+  
+  // Hide all sections, remove active class from all nav items
+  document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  
+  const targetSection = document.getElementById(`view-${viewId}`);
+  const targetNav = document.querySelector(`.nav-item[data-view="${viewId}"]`);
+  
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+  if (targetNav) {
+    targetNav.classList.add('active');
+  }
+
+  // Close mobile sidebar if open
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar && sidebar.classList.contains('mobile-open')) {
+    sidebar.classList.remove('mobile-open');
+  }
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function handleHashChange() {
+  const hash = window.location.hash.replace('#', '').trim();
+  const validViews = ['overview', 'weeks', 'ca1', 'transcripts', 'glossary', 'deploy'];
+  if (hash && validViews.includes(hash)) {
+    switchView(hash);
+  } else if (!hash) {
+    switchView('overview');
+  }
+}
 
 // --- Theme Management ---
 function initTheme() {
@@ -35,7 +86,7 @@ function initTheme() {
 function toggleTheme() {
   state.theme = state.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', state.theme);
-  localStorage.setItem('dep_theme', state.theme);
+  safeStorage.set('dep_theme', state.theme);
   updateThemeIcon();
 }
 
@@ -45,6 +96,11 @@ function updateThemeIcon() {
   btn.innerHTML = state.theme === 'dark' 
     ? `<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>`
     : `<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>`;
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar) sidebar.classList.toggle('mobile-open');
 }
 
 // --- Live Countdown to CA1 Deadline (01 Nov 2026 23:59:00 IST) ---
@@ -72,27 +128,11 @@ function initCountdown() {
     
     const formatted = `${days}d ${hours}h ${mins}m ${secs}s`;
     if (bannerEl) bannerEl.textContent = formatted;
-    if (miniEl) miniEl.textContent = `${days}d ${hours}h remaining`;
+    if (miniEl) miniEl.textContent = `${days}d ${hours}h left`;
   }
   
   updateTimer();
   setInterval(updateTimer, 1000);
-}
-
-// --- Navigation & View Switching ---
-function switchView(viewId) {
-  state.activeView = viewId;
-  
-  document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-  
-  const targetSection = document.getElementById(`view-${viewId}`);
-  const targetNav = document.querySelector(`[data-view=\"${viewId}\"]`);
-  
-  if (targetSection) targetSection.classList.add('active');
-  if (targetNav) targetNav.classList.add('active');
-  
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // --- Render Overview Dashboard ---
@@ -122,14 +162,14 @@ function renderOverview() {
           Covers end-to-end data acquisition, consistency, CRISP-DM, exploratory data analysis, systematic data cleaning, Palmer Penguins and Titanic labs, and full CA1 assessment delivery.
         </p>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button class="btn btn-warning" onclick="switchView('ca1')">
+          <a class="btn btn-warning" href="#ca1">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             CA1 Assessment Hub (40%)
-          </button>
-          <button class="btn btn-secondary" onclick="switchView('weeks')">
+          </a>
+          <a class="btn btn-secondary" href="#weeks">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
             Browse Weekly Modules
-          </button>
+          </a>
           <button class="btn btn-secondary" onclick="openTranscriptModal()">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
             Add Lecture Transcripts / Notes
@@ -288,14 +328,14 @@ function renderWeeklyModules() {
               Weekly Class Video Sessions (Google Drive) & Transcripts
             </div>
             <div class="video-grid">
-              ${w.videoSlots.map((slot, idx) => `
+              ${(w.videoSlots || []).map((slot, idx) => `
                 <div class="video-slot-card">
                   <div class="video-slot-header">
                     <span class="video-slot-title">${slot.title}</span>
                     <span class="video-slot-time">${slot.time}</span>
                   </div>
                   <div class="transcript-preview">
-                    ${slot.transcript ? `<em>${slot.transcript}</em>` : 'No video file downloaded locally. Available on College Google Drive.'}
+                    ${slot.transcript ? `<em>${slot.transcript}</em>` : 'Available on College Google Drive. Attach notes or transcripts below.'}
                   </div>
                   <button class="btn btn-secondary" style="font-size: 0.75rem; padding: 4px 10px; align-self: flex-start;" onclick="openTranscriptModal(${w.weekNumber}, '${slot.id}')">
                     <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
@@ -331,6 +371,7 @@ function toggleWeekCard(weekNum) {
 }
 
 function openWeekCard(weekNum) {
+  window.location.hash = 'weeks';
   switchView('weeks');
   setTimeout(() => {
     const card = document.getElementById(`week-card-${weekNum}`);
@@ -472,7 +513,7 @@ function toggleCheckItem(id) {
   const item = state.checklist.find(c => c.id === id);
   if (!item) return;
   item.done = !item.done;
-  localStorage.setItem('dep_ca1_checklist', JSON.stringify(state.checklist));
+  safeStorage.set('dep_ca1_checklist', state.checklist);
   renderCA1Section();
   updateProgressStats();
 }
@@ -480,7 +521,7 @@ function toggleCheckItem(id) {
 function resetChecklist() {
   if (confirm('Reset all checklist progress?')) {
     state.checklist.forEach(c => c.done = false);
-    localStorage.setItem('dep_ca1_checklist', JSON.stringify(state.checklist));
+    safeStorage.set('dep_ca1_checklist', state.checklist);
     renderCA1Section();
     updateProgressStats();
   }
@@ -599,7 +640,7 @@ function saveModalTranscript() {
   const newEntry = `### ${title || 'Class Notes / Transcript'} (${new Date().toLocaleDateString()})\n${text}\n\n`;
   
   state.userTranscripts[weekKey] = newEntry + existing;
-  localStorage.setItem('dep_user_transcripts', JSON.stringify(state.userTranscripts));
+  safeStorage.set('dep_user_transcripts', state.userTranscripts);
 
   closeTranscriptModal();
   renderWeeklyModules();
@@ -610,7 +651,7 @@ function saveModalTranscript() {
 function deleteTranscript(key) {
   if (confirm(`Delete notes for ${key}?`)) {
     delete state.userTranscripts[key];
-    localStorage.setItem('dep_user_transcripts', JSON.stringify(state.userTranscripts));
+    safeStorage.set('dep_user_transcripts', state.userTranscripts);
     renderWeeklyModules();
     renderTranscriptsHub();
   }
@@ -626,7 +667,8 @@ function exportNotes() {
 
 // --- Helpers ---
 function escapeHtml(str) {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  if (!str) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function copyCode(elementId) {
@@ -644,11 +686,61 @@ function setupEventListeners() {
     searchInput.addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
       state.searchQuery = q;
-      // Search inside weeks and filter cards
       document.querySelectorAll('.week-card').forEach(card => {
         const text = card.innerText.toLowerCase();
         card.style.display = text.includes(q) ? 'block' : 'none';
       });
     });
   }
+
+  // Hash-based routing
+  window.addEventListener('hashchange', handleHashChange);
+
+  // Global Click delegation for [data-view]
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-view]');
+    if (trigger) {
+      const targetView = trigger.getAttribute('data-view');
+      if (targetView) {
+        switchView(targetView);
+      }
+    }
+  });
 }
+
+// --- Initialize App ---
+function initApp() {
+  initTheme();
+  initCountdown();
+  renderOverview();
+  renderWeeklyModules();
+  renderCA1Section();
+  renderTranscriptsHub();
+  renderGlossary();
+  setupEventListeners();
+  updateProgressStats();
+  handleHashChange();
+}
+
+// Run immediately if DOM is ready, otherwise wait for DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
+
+// Explicit global exposure for inline onclick handlers
+window.switchView = switchView;
+window.toggleTheme = toggleTheme;
+window.toggleSidebar = toggleSidebar;
+window.openTranscriptModal = openTranscriptModal;
+window.closeTranscriptModal = closeTranscriptModal;
+window.saveModalTranscript = saveModalTranscript;
+window.deleteTranscript = deleteTranscript;
+window.exportNotes = exportNotes;
+window.toggleCheckItem = toggleCheckItem;
+window.resetChecklist = resetChecklist;
+window.copyCode = copyCode;
+window.toggleWeekCard = toggleWeekCard;
+window.openWeekCard = openWeekCard;
+window.setWeekFilter = setWeekFilter;

@@ -24,33 +24,33 @@
 
     <nav class="nav-menu">
       <div class="nav-section-label">Core Dashboard</div>
-      <a class="nav-item active" data-view="overview" onclick="switchView('overview')">
+      <a class="nav-item active" href="#overview" data-view="overview">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
         Overview & Roadmap
       </a>
-      <a class="nav-item" data-view="ca1" onclick="switchView('ca1')">
+      <a class="nav-item" href="#ca1" data-view="ca1">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         CA1 Assessment (40%)
         <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.4);">Nov 1</span>
       </a>
 
       <div class="nav-section-label">Course Content</div>
-      <a class="nav-item" data-view="weeks" onclick="switchView('weeks')">
+      <a class="nav-item" href="#weeks" data-view="weeks">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
         Weekly Modules
         <span class="nav-badge">13 Wks</span>
       </a>
-      <a class="nav-item" data-view="transcripts" onclick="switchView('transcripts')">
+      <a class="nav-item" href="#transcripts" data-view="transcripts">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
         Video Transcripts & Notes
       </a>
-      <a class="nav-item" data-view="glossary" onclick="switchView('glossary')">
+      <a class="nav-item" href="#glossary" data-view="glossary">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
         Knowledge & Glossary
       </a>
 
       <div class="nav-section-label">Deployment</div>
-      <a class="nav-item" data-view="deploy" onclick="switchView('deploy')">
+      <a class="nav-item" href="#deploy" data-view="deploy">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
         GitHub & Cloudflare
       </a>
@@ -71,9 +71,14 @@
   <div class="main-wrapper">
     <!-- Topbar -->
     <header class="topbar">
-      <div class="search-box">
-        <svg width="18" height="18" fill="none" stroke="var(--text-dim)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        <input type="text" id="global-search" placeholder="Search concepts, weeks, tasks, code...">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="btn btn-icon mobile-menu-btn" id="mobile-toggle" onclick="toggleSidebar()" title="Toggle Menu" style="display: none;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <div class="search-box">
+          <svg width="18" height="18" fill="none" stroke="var(--text-dim)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" id="global-search" placeholder="Search concepts, weeks, tasks, code...">
+        </div>
       </div>
 
       <div class="topbar-actions">
@@ -160,38 +165,22 @@
         </div>
 
         <div class="card" style="margin-bottom: 24px;">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-blue);">Option A: Host via GitHub Pages (Recommended & Free)</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-blue);">Option A: Host via GitHub Pages (Live Online)</h3>
           <ol style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
-            <li>Create a new repository on your GitHub account named <code>cct-data-exploration</code> or <code>dep-study-hub</code>.</li>
-            <li>In this folder (<code>dep-study-hub</code>), run the git commands provided below to initialize, commit, and push.</li>
+            <li>Repository: <a href="https://github.com/agusv2022/cct-dep-study-hub" target="_blank" style="color:var(--accent-cyan); font-weight:700;">agusv2022/cct-dep-study-hub</a></li>
             <li>In your GitHub repo settings, go to <strong>Pages</strong> (under "Code and automation").</li>
-            <li>Under "Build and deployment", set source to <strong>Deploy from a branch</strong>, choose <strong>main</strong> (or master) branch and <code>/ (root)</code> folder, then click <strong>Save</strong>.</li>
-            <li>Your site will be live in 60 seconds at: <code>https://&lt;your-username&gt;.github.io/dep-study-hub/</code>!</li>
+            <li>Source: <strong>Deploy from a branch</strong>, branch <strong>main</strong>, folder <strong>/ (root)</strong>.</li>
+            <li>Your site is live at: <a href="https://agusv2022.github.io/cct-dep-study-hub/" target="_blank" style="color:var(--accent-emerald); font-weight:700;">https://agusv2022.github.io/cct-dep-study-hub/</a></li>
           </ol>
-
-          <div class="code-box" style="margin-top: 16px;">
-            <div class="code-header">
-              <span class="code-title">Terminal Commands to Push</span>
-              <button class="code-copy-btn" onclick="copyCode('code-git-deploy')">Copy</button>
-            </div>
-            <pre><code id="code-git-deploy">cd "dep-study-hub"
-git init
-git add .
-git commit -m "Initial commit: Data Exploration & Preparation Study Hub"
-git branch -M main
-git remote add origin https://github.com/&lt;YOUR_GITHUB_USERNAME&gt;/dep-study-hub.git
-git push -u origin main</code></pre>
-          </div>
         </div>
 
         <div class="card">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-amber);">Option B: Host via Cloudflare Pages (Instant & Blazing Fast)</h3>
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-amber);">Option B: Host via Cloudflare Pages</h3>
           <ol style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
             <li>Log into your <a href="https://dash.cloudflare.com/" target="_blank" style="color:var(--accent-cyan);">Cloudflare Dashboard</a>.</li>
             <li>Navigate to <strong>Workers & Pages</strong> &gt; <strong>Create application</strong> &gt; <strong>Pages</strong>.</li>
-            <li>Choose <strong>Connect to Git</strong> (select the GitHub repo you pushed above) OR choose <strong>Direct Upload</strong> (drag and drop the <code>dep-study-hub</code> folder directly!).</li>
-            <li>Build settings: Framework preset = <em>None</em>, Build command = <em>(Leave empty)</em>, Build output directory = <em>(Leave empty / root)</em>.</li>
-            <li>Click <strong>Deploy site</strong>. You will receive an instant <code>https://&lt;project-name&gt;.pages.dev</code> address with free SSL and edge CDN caching.</li>
+            <li>Choose <strong>Connect to Git</strong> (select <code>cct-dep-study-hub</code>) OR <strong>Direct Upload</strong>.</li>
+            <li>Click <strong>Deploy site</strong>. Instant global CDN hosting.</li>
           </ol>
         </div>
       </section>

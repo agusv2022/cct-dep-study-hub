@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Exploration & Preparation | CCT Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-badge">
+        <span style="display:inline-block; width:6px; height:6px; background:var(--accent-cyan); border-radius:50%;"></span>
+        CCT College Dublin
+      </div>
+      <div class="brand-title">Data Exploration & Preparation</div>
+      <div class="brand-sub">Level 7 Diploma • Sep 26 Cohort</div>
+    </div>
+
+    <nav class="nav-menu">
+      <div class="nav-section-label">Core Dashboard</div>
+      <a class="nav-item active" data-view="overview" onclick="switchView('overview')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        Overview & Roadmap
+      </a>
+      <a class="nav-item" data-view="ca1" onclick="switchView('ca1')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        CA1 Assessment (40%)
+        <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.4);">Nov 1</span>
+      </a>
+
+      <div class="nav-section-label">Course Content</div>
+      <a class="nav-item" data-view="weeks" onclick="switchView('weeks')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        Weekly Modules
+        <span class="nav-badge">13 Wks</span>
+      </a>
+      <a class="nav-item" data-view="transcripts" onclick="switchView('transcripts')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+        Video Transcripts & Notes
+      </a>
+      <a class="nav-item" data-view="glossary" onclick="switchView('glossary')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        Knowledge & Glossary
+      </a>
+
+      <div class="nav-section-label">Deployment</div>
+      <a class="nav-item" data-view="deploy" onclick="switchView('deploy')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        GitHub & Cloudflare
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="ca1-mini-card">
+        <div class="ca1-mini-header">
+          <span class="ca1-mini-title">CA1 DEADLINE</span>
+          <span style="font-size: 0.7rem; color: var(--text-dim);">Nov 1</span>
+        </div>
+        <div class="ca1-mini-countdown" id="ca1-mini-timer">Calculating...</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-wrapper">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="search-box">
+        <svg width="18" height="18" fill="none" stroke="var(--text-dim)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <input type="text" id="global-search" placeholder="Search concepts, weeks, tasks, code...">
+      </div>
+
+      <div class="topbar-actions">
+        <button class="btn btn-primary" onclick="openTranscriptModal()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+          Add Notes / Transcript
+        </button>
+        <button class="btn btn-icon" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Theme">
+          <!-- Populated by JS -->
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Content Viewports -->
+    <main class="content-area">
+      <!-- 1. Overview Section -->
+      <section id="view-overview" class="view-section active">
+        <div class="section-header">
+          <div class="section-tag">Executive Dashboard</div>
+          <h2 class="section-title">Course Roadmap & Study Command Center</h2>
+          <p class="section-desc">
+            A unified learning hub containing synthesis of all weekly class materials, laboratory notebooks, syllabus milestones, and continuous assessment deliverables.
+          </p>
+        </div>
+        <div id="overview-container"></div>
+      </section>
+
+      <!-- 2. Weekly Modules Section -->
+      <section id="view-weeks" class="view-section">
+        <div class="section-header">
+          <div class="section-tag">Academic Modules</div>
+          <h2 class="section-title">Weekly Lectures, Labs & Video Slots</h2>
+          <p class="section-desc">
+            Each week features 2 class video sessions hosted on Google Drive, along with structured theoretical takeaways and practical Python implementations.
+          </p>
+        </div>
+        <div id="weeks-container"></div>
+      </section>
+
+      <!-- 3. CA1 Assessment Hub -->
+      <section id="view-ca1" class="view-section">
+        <div class="section-header">
+          <div class="section-tag">Assessment 1 Hub</div>
+          <h2 class="section-title">Continuous Assessment 1 (CA1 — 40%)</h2>
+          <p class="section-desc">
+            Submission Deadline: 1st November 2026 at 23:59 IST. Dataset: Smart_Home_Energy.csv. Complete rubric, 20-step checklist, poster guidelines, and Python recipes.
+          </p>
+        </div>
+        <div id="ca1-container"></div>
+      </section>
+
+      <!-- 4. Video Transcripts & Notes Hub -->
+      <section id="view-transcripts" class="view-section">
+        <div class="section-header">
+          <div class="section-tag">NotebookLM & Video Knowledge</div>
+          <h2 class="section-title">Class Video Transcripts & Synced Notes</h2>
+          <p class="section-desc">
+            Paste transcriptions or generated summaries from Gemini NotebookLM or your class notes to enrich each week's knowledge repository.
+          </p>
+        </div>
+        <div id="transcripts-container"></div>
+      </section>
+
+      <!-- 5. Glossary Section -->
+      <section id="view-glossary" class="view-section">
+        <div class="section-header">
+          <div class="section-tag">Reference Guide</div>
+          <h2 class="section-title">Key Terminology & Methodological Frameworks</h2>
+          <p class="section-desc">
+            Core concepts spanning CRISP-DM, SEMMA, data types, statistical properties, imputation methodologies, GDPR, and the EU AI Act.
+          </p>
+        </div>
+        <div id="glossary-container"></div>
+      </section>
+
+      <!-- 6. Deployment & GitHub Guide -->
+      <section id="view-deploy" class="view-section">
+        <div class="section-header">
+          <div class="section-tag">Version Control & Web Hosting</div>
+          <h2 class="section-title">Publish to GitHub & Cloudflare Pages</h2>
+          <p class="section-desc">
+            Step-by-step instructions to create your repository, push this study hub, and deploy it live with free global hosting.
+          </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-blue);">Option A: Host via GitHub Pages (Recommended & Free)</h3>
+          <ol style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+            <li>Create a new repository on your GitHub account named <code>cct-data-exploration</code> or <code>dep-study-hub</code>.</li>
+            <li>In this folder (<code>dep-study-hub</code>), run the git commands provided below to initialize, commit, and push.</li>
+            <li>In your GitHub repo settings, go to <strong>Pages</strong> (under "Code and automation").</li>
+            <li>Under "Build and deployment", set source to <strong>Deploy from a branch</strong>, choose <strong>main</strong> (or master) branch and <code>/ (root)</code> folder, then click <strong>Save</strong>.</li>
+            <li>Your site will be live in 60 seconds at: <code>https://&lt;your-username&gt;.github.io/dep-study-hub/</code>!</li>
+          </ol>
+
+          <div class="code-box" style="margin-top: 16px;">
+            <div class="code-header">
+              <span class="code-title">Terminal Commands to Push</span>
+              <button class="code-copy-btn" onclick="copyCode('code-git-deploy')">Copy</button>
+            </div>
+            <pre><code id="code-git-deploy">cd "dep-study-hub"
+git init
+git add .
+git commit -m "Initial commit: Data Exploration & Preparation Study Hub"
+git branch -M main
+git remote add origin https://github.com/&lt;YOUR_GITHUB_USERNAME&gt;/dep-study-hub.git
+git push -u origin main</code></pre>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-amber);">Option B: Host via Cloudflare Pages (Instant & Blazing Fast)</h3>
+          <ol style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
+            <li>Log into your <a href="https://dash.cloudflare.com/" target="_blank" style="color:var(--accent-cyan);">Cloudflare Dashboard</a>.</li>
+            <li>Navigate to <strong>Workers & Pages</strong> &gt; <strong>Create application</strong> &gt; <strong>Pages</strong>.</li>
+            <li>Choose <strong>Connect to Git</strong> (select the GitHub repo you pushed above) OR choose <strong>Direct Upload</strong> (drag and drop the <code>dep-study-hub</code> folder directly!).</li>
+            <li>Build settings: Framework preset = <em>None</em>, Build command = <em>(Leave empty)</em>, Build output directory = <em>(Leave empty / root)</em>.</li>
+            <li>Click <strong>Deploy site</strong>. You will receive an instant <code>https://&lt;project-name&gt;.pages.dev</code> address with free SSL and edge CDN caching.</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal for Adding / Editing Notes & Transcripts -->
+  <div class="modal-overlay" id="transcript-modal" onclick="if(event.target===this) closeTranscriptModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Attach Notes or Transcripts</h3>
+        <button class="btn btn-icon" onclick="closeTranscriptModal()" style="border:none; background:transparent;">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="modal-week-select">Assign to Course Week</label>
+          <select id="modal-week-select">
+            <option value="week-1">Week 1: Course Introduction & Python Primer</option>
+            <option value="week-2">Week 2: Data Fundamentals & Version Control</option>
+            <option value="week-3">Week 3: Data Lifecycle, Data Dictionaries & Ethics</option>
+            <option value="week-4">Week 4: Deep Dive into EDA & CRISP-DM</option>
+            <option value="week-5" selected>Week 5: Systematic Data Cleaning & Poster Strategy</option>
+            <option value="week-6">Week 6: Feature Selection & Duplicates</option>
+            <option value="week-7">Week 7: Reading Week & CA1 Submission</option>
+            <option value="week-8">Week 8: Feature Engineering (Discretization)</option>
+            <option value="week-9">Week 9: Feature Engineering (Encoding)</option>
+            <option value="week-10">Week 10: Feature Engineering (Scaling)</option>
+            <option value="week-11">Week 11: Dimensionality Reduction (PCA/LDA)</option>
+            <option value="week-12">Week 12: Feature Creation & Interactions</option>
+            <option value="week-13">Week 13: Semester Review & CA2 Briefing</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modal-title-input">Note / Session Title</label>
+          <input type="text" id="modal-title-input" placeholder="e.g., Session 1 Gemini Transcript / Outliers Discussion">
+        </div>
+        <div class="form-group">
+          <label for="modal-text-input">Transcript or Summary Content</label>
+          <textarea id="modal-text-input" rows="8" placeholder="Paste your transcript from Gemini NotebookLM or class notes here..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeTranscriptModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveModalTranscript()">Save & Sync to Hub</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

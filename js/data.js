@@ -82,68 +82,10 @@ const COURSE_DATA = {
       { id: 'chk-20', text: 'Submit individual files (Notebook, Poster PPT, Video Link & GitHub Link) on Moodle', category: 'submission', done: false }
     ],
     codeTemplates: {
-      eda: # --- 1. INITIAL INSPECTION ---
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-plt.style.use('seaborn-v0_8-whitegrid')
-df = pd.read_csv('Smart_Home_Energy.csv')
-
-print('Shape:', df.shape)
-print('\nData Types & Non-Null Counts:')
-df.info()
-
-print('\nDescriptive Statistics:')
-display(df.describe(include='all'))
-
-print('\nMissing Values Breakdown:')
-missing = df.isnull().sum()
-print(missing[missing > 0])
-
-print('\nDuplicate Count:', df.duplicated().sum()),
-      cleaning: # --- 2. DATA CLEANING & MISSING VALUES ---
-# Handling duplicates
-initial_rows = len(df)
-df = df.drop_duplicates()
-print(f'Dropped {initial_rows - len(df)} duplicate records.')
-
-# Missing value strategy:
-# - For skewed numeric features: Impute with Median
-# - For symmetric numeric features: Impute with Mean
-# - For categorical features: Impute with Mode or 'Unknown'
-# - Optional: Add missingness indicator flag if missingness is informative
-for col in df.select_dtypes(include=[np.number]).columns:
-    if df[col].isnull().sum() > 0:
-        # Flagging
-        df[f'{col}_was_missing'] = df[col].isnull().astype(int)
-        # Median imputation (robust to outliers)
-        median_val = df[col].median()
-        df[col] = df[col].fillna(median_val)
-        print(f'Imputed {col} with median: {median_val}'),
-      outliers: # --- 3. OUTLIER DETECTION (IQR METHOD) ---
-def detect_outliers_iqr(series):
-    q1 = series.quantile(0.25)
-    q3 = series.quantile(0.75)
-    iqr = q3 - q1
-    lower_bound = q1 - 1.5 * iqr
-    upper_bound = q3 + 1.5 * iqr
-    outliers = series[(series < lower_bound) | (series > upper_bound)]
-    return lower_bound, upper_bound, len(outliers)
-
-# Example on target energy consumption
-# target_col = 'Energy_Consumption'
-# lb, ub, n_outliers = detect_outliers_iqr(df[target_col])
-# print(f'{target_col}: {n_outliers} outliers detected outside [{lb:.2f}, {ub:.2f}]'),
-      featureSelection: # --- 4. FEATURE SELECTION (CORRELATION & VARIANCE) ---
-# Correlation matrix with target
-numeric_df = df.select_dtypes(include=[np.number])
-plt.figure(figsize=(10, 8))
-sns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
-plt.title('Correlation Matrix for Feature Selection', fontsize=14, weight='bold')
-plt.tight_layout()
-plt.show()
+      eda: "# --- 1. INITIAL INSPECTION ---\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\nplt.style.use('seaborn-v0_8-whitegrid')\ndf = pd.read_csv('Smart_Home_Energy.csv')\n\nprint('Shape:', df.shape)\nprint('\\nData Types & Non-Null Counts:')\ndf.info()\n\nprint('\\nDescriptive Statistics:')\ndisplay(df.describe(include='all'))\n\nprint('\\nMissing Values Breakdown:')\nmissing = df.isnull().sum()\nprint(missing[missing > 0])\n\nprint('\\nDuplicate Count:', df.duplicated().sum())",
+      cleaning: "# --- 2. DATA CLEANING & MISSING VALUES ---\n# Handling duplicates\ninitial_rows = len(df)\ndf = df.drop_duplicates()\nprint(f'Dropped {initial_rows - len(df)} duplicate records.')\n\n# Missing value strategy:\n# - For skewed numeric features: Impute with Median\n# - For symmetric numeric features: Impute with Mean\n# - For categorical features: Impute with Mode or 'Unknown'\n# - Optional: Add missingness indicator flag if missingness is informative\nfor col in df.select_dtypes(include=[np.number]).columns:\n    if df[col].isnull().sum() > 0:\n        # Flagging\n        df[f'{col}_was_missing'] = df[col].isnull().astype(int)\n        # Median imputation (robust to outliers)\n        median_val = df[col].median()\n        df[col] = df[col].fillna(median_val)\n        print(f'Imputed {col} with median: {median_val}')",
+      outliers: "# --- 3. OUTLIER DETECTION (IQR METHOD) ---\ndef detect_outliers_iqr(series):\n    q1 = series.quantile(0.25)\n    q3 = series.quantile(0.75)\n    iqr = q3 - q1\n    lower_bound = q1 - 1.5 * iqr\n    upper_bound = q3 + 1.5 * iqr\n    outliers = series[(series < lower_bound) | (series > upper_bound)]\n    return lower_bound, upper_bound, len(outliers)\n\n# Example on target energy consumption\n# target_col = 'Energy_Consumption'\n# lb, ub, n_outliers = detect_outliers_iqr(df[target_col])\n# print(f'{target_col}: {n_outliers} outliers detected outside [{lb:.2f}, {ub:.2f}]')",
+      featureSelection: "# --- 4. FEATURE SELECTION (CORRELATION & VARIANCE) ---\n# Correlation matrix with target\nnumeric_df = df.select_dtypes(include=[np.number])\nplt.figure(figsize=(10, 8))\nsns.heatmap(numeric_df.corr(), annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)\nplt.title('Correlation Matrix for Feature Selection', fontsize=14, weight='bold')\nplt.tight_layout()\nplt.show()"
     }
   },
   weeks: [

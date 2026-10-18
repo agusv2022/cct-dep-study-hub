@@ -69,7 +69,7 @@ function switchView(viewId) {
 
 function handleHashChange() {
   const hash = window.location.hash.replace('#', '').trim();
-  const validViews = ['overview', 'weeks', 'ca1', 'transcripts', 'glossary', 'deploy'];
+  const validViews = ['overview', 'weeks', 'documents', 'ca1', 'transcripts', 'glossary', 'deploy'];
   if (hash && validViews.includes(hash)) {
     switchView(hash);
   } else if (!hash) {

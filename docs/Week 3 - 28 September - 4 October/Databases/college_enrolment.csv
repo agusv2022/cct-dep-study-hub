@@ -1,0 +1,1017 @@
+Year,Programme,Study_Mode,New_Enrolments,Continuing_Students,Graduates,Average_Mark,Student_Satisfaction
+2022,Cybersecurity,Full-time,75,131,36,67.3,3.3
+2021,Data Analytics,Part-time,44,66,12,64.1,3.4
+2016,Business,Full-time,98,155,59,60,3.2
+2021,Cybersecurity,Full-time,63,103,33,71.7,3.8
+2021,Data Analytics,Full-time,86,147,47,75.3,4.1
+2019,Business,Full-time,114,206,68,60.8,3.5
+2016,Data Analytics,Part-time,34,43,11,63.3,3.4
+2017,Business,Part-time,50,54,24,75.6,2.9
+2018,Cybersecurity,Online,19,51,14,69.2,3.8
+2018,Cybersecurity,Online,19,51,14,69.2,3.8
+2022,Business,Full-time,96,,54,61.9,3
+2020,Business,Part-time,44,77,39,60.2,3.2
+2018,Business,Online,49,50,10,67.9,3
+2018,Computing,Online,38,52,11,59.1,3.3
+2021,Data Analytics,Full-time,73,138,46,73.2,4
+2017,Business,Online,98,58,24,67.6,2.9
+2017,Business,Online,120,56,16,63.7,2.4
+2018,Business,Full-time,96,161,50,58.1,3
+2023,Business,Part-time,62,114,20,67.3,2.9
+2021,Cybersecurity,Part-time,50,105,31,73.8,3.4
+2021,Data Analytics,,87,130,46,75.6,3.7
+2018,Computing,Part-time,57,81,22,68.2,3.8
+2021,Computing,Part-time,62,116,19,65.9,3.6
+2024,Computing,Part-time,45,60,20,64.9,3.2
+2024,Computing,Part-time,45,60,20,64.9,3.2
+2024,Business,Part-time,58,86,32,69.7,4.2
+2023,Cybersecurity,Online,36,63,12,65.7,3.7
+2017,Computing,Part-time,58,80,23,66.5,3.3
+2017,Computing,Online,44,46,9,63.1,2.6
+2019,Computing,Full-time,97,221,59,66.7,3.1
+2024,Data Analytics,Full-time,109,179,52,69.7,3.9
+2020,Cybersecurity,Part-time,29,38,6,58.7,3.3
+2016,Cybersecurity,Part-time,41,61,17,67.6,2.8
+2024,Computing,Full-time,113,168,72,61.3,2.9
+2019,Computing,Full-time,87,194,66,64.5,3.3
+2025,Cybersecurity,Part-time,57,62,14,61.4,3.1
+2020,Cybersecurity,Full-time,64,116,43,61.8,3.2
+2024,Business,Online,70,159,36,61.8,2.7
+2025,Computing,Part-time,78,96,30,74.1,3.7
+2018,Computing,Full-time,95,135,55,66.5,3.8
+2022,Computing,Part-time,55,81,19,64,2.6
+2021,Data Analytics,Online,19,36,5,73.1,3.6
+2017,Data Analytics,Part-time,34,28,14,63.7,3.8
+2025,Data Analytics,Part-time,51,93,26,68.9,2.9
+2017,Data Analytics,Full-time,76,126,54,70.6,3.5
+2023,Data Analytics,Full-time,96,169,57,70.6,3.7
+2018,Data Analytics,Online,55,116,36,69.6,3.4
+2024,Business,Online,74,146,35,61.5,2.9
+2019,Business,Part-time,48,87,24,61.8,3.2
+2022,Computing,Full-time,98,205,62,62.8,3.7
+2022,Data Analytics,Part-time,47,61,10,69.9,3.3
+2023,Cybersecurity,Online,41,69,11,68,3.2
+2024,Business,Full-time,100,243,80,73.1,3.1
+2025,Business,Part-time,68,82,9,62.2,2.9
+2017,Cybersecurity,Online,210,355,11,64.7,2.9
+2016,Business,Online,64,80,20,67.4,3.5
+2025,Data Analytics,Part-time,56,87,30,67.1,3.2
+2022,Business,Part-time,64,122,36,69.9,2.8
+2019,Data Analytics,Online,53,63,7,62.5,3
+2023,Cybersecurity,Online,38,71,16,63.2,3.4
+2019,Computing,Part-time,51,68,17,62.3,2.9
+2017,Business,Part-time,43,62,22,74,3.1
+2018,Computing,Part-time,51,91,25,65.6,3.5
+2016,Business,Full-time,108,173,36,64,3.4
+2018,Cybersecurity,Part-time,26,42,10,63.4,3.2
+2021,Data Analytics,Full-time,70,137,38,71.7,3.8
+2017,Business,Full-time,88,170,70,64.9,3.4
+2017,Business,Full-time,105,171,75,67.8,3.2
+2021,Computing,Full-time,103,221,81,70,3.6
+2018,Data Analytics,Online,53,122,42,72.5,3.7
+2023,Cybersecurity,Part-time,39,99,19,68.1,4.1
+2018,Computing,Full-time,77,142,43,65.5,3.7
+2016,Data Analytics,Full-time,81,113,39,69,3.4
+2017,Cybersecurity,Online,24,22,8,61.5,3
+2019,Cybersecurity,Full-time,80,132,45,67.3,3.2
+2021,Business,Part-time,70,113,27,69.5,2.3
+2019,Data Analytics,Full-time,67,127,36,69.2,2.9
+2023,Computing,Part-time,77,100,27,75.9,3.5
+2018,Business,Online,45,46,13,66,3.1
+2025,Computing,Full-time,139,213,67,62.6,3.3
+2019,Computing,Part-time,55,66,18,60.1,3.4
+2021,Business,Online,65,77,23,63.4,3.7
+2022,Computing,Full-time,103,161,62,64.1,3.4
+2022,Business,Online,42,74,35,61.6,2.9
+2017,Business,Full-time,99,211,54,67.4,3.4
+2017,Computing,Full-time,102,157,50,66.1,3.9
+2016,Business,Full-time,94,145,38,63.6,3.7
+2019,Cybersecurity,Full-time,81,137,55,71.6,2.9
+2025,Data Analytics,Full-time,112,164,64,66.8,4.1
+2023,Data Analytics,Full-time,87,170,47,70.9,3.6
+2022,Business,Part-time,67,109,37,68.9,3
+2017,Business,Part-time,46,67,18,71,3
+2020,Computing,Part-time,68,93,28,72.9,3.5
+2023,Computing,Part-time,75,90,27,,3.1
+2023,Business,Online,50,113,27,65.6,2.7
+2024,Cybersecurity,Online,31,50,11,64.7,3.8
+2020,Business,Part-time,48,91,33,60.7,3.4
+2020,Data Analytics,Full-time,66,118,55,72.3,3.5
+2023,Business,Part-time,62,87,16,66.7,3.5
+2017,Business,Full-time,134,196,55,68.1,3.5
+2022,Data Analytics,Online,32,23,9,65,3.3
+2018,Cybersecurity,Online,30,54,12,66.4,3.8
+2020,Computing,Part-time,67,94,32,74.1,3.4
+2019,Data Analytics,Online,47,60,5,63.3,3.4
+2022,Data Analytics,Part-time,45,80,16,69.3,3
+2023,Computing,Online,45,73,46,61.6,3.9
+2016,Business,Part-time,59,84,17,66.3,
+2022,Data Analytics,Full-time,94,148,42,68.9,2.4
+2017,Cybersecurity,Part-time,31,31,7,72,3.2
+2022,Data Analytics,Online,35,28,7,65.7,3.5
+2017,Cybersecurity,Part-time,36,30,5,67,2.8
+2017,Business,Part-time,50,49,16,74.4,3.2
+2021,Cybersecurity,Part-time,57,97,32,70.5,3.3
+2024,Data Analytics,Full-time,96,148,42,67.2,3.7
+2022,Computing,Online,55,82,23,69.2,2.9
+2018,Computing,Online,38,60,18,62.7,3.2
+2025,Computing,Part-time,62,117,27,70.1,4
+2016,Computing,Online,41,42,9,61.7,4
+2021,Cybersecurity,Online,44,69,18,69.5,3.5
+2021,Business,Online,54,73,24,66,3.1
+2016,Cybersecurity,Full-time,55,75,14,67.5,3.6
+2022,Data Analytics,Part-time,54,,14,74.9,3.1
+2021,Business,Part-time,70,123,35,68.7,2.7
+2025,Cybersecurity,Full-time,82,123,41,,3.5
+2021,Business,Online,43,70,19,63.7,3.4
+2024,Business,Part-time,45,85,35,67.1,4.1
+2017,Business,Part-time,48,54,19,73,3
+2016,Computing,Full-time,92,161,60,68.5,3.5
+2021,Data Analytics,Part-time,50,73,14,61.1,3.5
+2025,Data Analytics,Online,37,65,17,67.2,2.9
+2017,Computing,Full-time,86,179,43,70,3.3
+2018,Business,Full-time,104,154,47,60.6,3.2
+2016,Computing,Part-time,43,64,19,73.8,3.8
+2017,Cybersecurity,Part-time,40,28,6,68.4,2.9
+2021,Computing,Part-time,72,120,15,68.6,3.4
+2021,Data Analytics,Online,25,35,9,71.2,3.7
+2020,Cybersecurity,Full-time,65,115,42,64.9,3.5
+2021,Data Analytics,Full-time,77,100,48,76.7,3.6
+2021,Business,Online,60,74,25,65.1,3.7
+2023,Business,Full-time,125,195,72,72.2,3.1
+2024,Cybersecurity,Full-time,80,160,51,65.1,3.5
+2024,Computing,Full-time,140,196,57,60.6,3
+2024,Cybersecurity,Part-time,53,105,19,65.5,2.6
+2025,Business,Full-time,130,182,57,64.3,3.1
+2018,Computing,Full-time,88,141,47,70.1,4.1
+2024,Data Analytics,Online,33,54,8,67.1,3.4
+2025,Computing,Online,61,96,25,62.9,3.1
+2025,Cybersecurity,Online,45,43,16,66.4,3.4
+2025,Business,Full-time,111,182,63,61.8,3.1
+2018,Computing,Full-time,76,112,43,70.7,3.8
+2018,Data Analytics,Full-time,69,119,31,69.6,3.7
+2024,Computing,Online,38,67,10,68.3,3.6
+2020,Business,Part-time,51,87,26,62.9,3.1
+2019,Cybersecurity,Part-time,57,62,22,71.2,3.4
+2023,Computing,Part-time,76,83,30,75.3,3.4
+2018,Business,Part-time,57,69,22,,3.6
+2022,Cybersecurity,Full-time,89,130,44,68.4,4
+2017,Computing,Full-time,85,182,48,69.6,3.6
+2018,Data Analytics,Part-time,31,31,8,68.2,3.4
+2024,Cybersecurity,Online,37,58,10,64.3,3.4
+2025,Cybersecurity,Part-time,51,69,18,62.8,3.3
+2023,Data Analytics,Online,50,95,20,63.4,3.4
+2024,Cybersecurity,Online,36,43,8,61.9,3.2
+2022,Business,Online,46,83,34,66.6,2.9
+2016,Computing,Online,32,53,7,62.4,3.7
+2024,Cybersecurity,Full-time,82,134,36,62.9,3.6
+2017,Cybersecurity,Part-time,45,29,12,70.9,3.2
+2019,Cybersecurity,Online,57,74,19,58.4,2.6
+2025,Computing,Full-time,124,220,60,63.6,2.9
+2022,Computing,Part-time,81,84,17,59.2,3.3
+2019,Cybersecurity,Part-time,41,77,27,67,3.4
+2016,Business,Full-time,102,188,45,65.1,3.4
+2020,Data Analytics,Online,41,74,14,59.3,3.1
+2023,Data Analytics,Full-time,86,184,68,68.8,3.8
+2023,Cybersecurity,Full-time,61,128,60,71.4,4.3
+2016,Data Analytics,Full-time,84,125,18,69.7,2.9
+2020,Business,Full-time,112,209,57,71.7,3.2
+2016,Data Analytics,Part-time,36,33,5,67.6,4.1
+2017,Data Analytics,Online,40,48,9,72.1,3.3
+2020,Data Analytics,Full-time,77,124,35,70.9,3.5
+2020,Cybersecurity,Online,43,96,19,72.3,3.1
+2020,Cybersecurity,Full-time,59,142,41,64.9,3.6
+2017,Data Analytics,Part-time,45,32,12,62.8,3.9
+2020,Cybersecurity,Part-time,25,36,11,61,3.3
+2019,Cybersecurity,Online,37,63,11,59.5,2.9
+2022,Data Analytics,Online,36,27,9,64.8,3
+2022,Business,Full-time,135,212,51,64.4,3
+2024,Cybersecurity,Full-time,84,156,50,66.9,3.6
+2017,Cybersecurity,Part-time,37,29,7,68.4,3
+2022,Computing,Online,53,92,24,66.2,3.4
+2023,Cybersecurity,Full-time,80,152,46,68.6,3.9
+2020,Business,Part-time,49,91,26,59.2,3.4
+2017,Data Analytics,Part-time,39,24,13,68.7,3.8
+2016,Data Analytics,Online,41,87,21,61.1,3.2
+2016,Business,Full-time,103,152,54,64.7,3
+2018,Data Analytics,Online,45,110,35,69.7,3.4
+2021,Data Analytics,Online,31,36,7,73.6,
+2016,Business,Part-time,70,93,26,65.9,3.7
+2024,Cybersecurity,Online,37,48,14,64.5,3.1
+2025,Cybersecurity,Full-time,71,143,38,66.5,3.6
+2022,Business,Part-time,71,119,40,68.5,2.8
+2024,Cybersecurity,Online,37,52,11,61,3.1
+2022,Data Analytics,Full-time,100,142,38,66.6,2.9
+2020,Computing,Full-time,102,187,68,69.2,3.8
+2021,Computing,Part-time,71,138,15,66.5,3.8
+2021,Data Analytics,Part-time,43,57,12,63.5,3.3
+2024,Data Analytics,Full-time,113,181,40,69.6,3.2
+2025,Cybersecurity,Full-time,70,166,40,69.2,3.6
+2025,Business,,60,116,19,65.5,3.6
+2022,Computing,Part-time,61,85,13,64.5,3.2
+2018,Data Analytics,Part-time,28,30,5,70.2,3.5
+2016,Business,Online,59,87,21,65.7,3.5
+2025,Data Analytics,Online,42,72,14,66.7,3.3
+2023,Cybersecurity,Online,45,71,15,66,3.4
+2016,Computing,Full-time,88,174,47,66.4,3.8
+2019,Business,Online,42,93,25,67.3,3.2
+2023,Business,Full-time,138,185,56,72.7,2.9
+2022,Data Analytics,Online,34,24,7,61.9,3.1
+2019,Business,Full-time,118,199,61,59.3,3.7
+2019,Business,Part-time,58,89,16,63.8,3
+2016,Cybersecurity,Part-time,35,72,18,67,2.5
+2025,Computing,Online,56,99,24,59.2,3.1
+2018,Cybersecurity,Part-time,26,50,13,64.3,3.5
+2020,Business,Part-time,53,95,32,61.4,3.7
+2025,Data Analytics,Part-time,62,,29,68.2,
+2016,Computing,Part-time,44,81,24,74,4.1
+2025,Business,Part-time,73,86,9,65.4,3
+2025,Cybersecurity,Full-time,84,117,37,71.7,3.4
+2019,Business,Online,36,85,23,,3.8
+2020,Computing,Part-time,71,90,25,72.2,3.2
+2018,Data Analytics,Part-time,31,31,5,69,3
+2017,Business,Full-time,120,209,55,71,3.3
+2023,Computing,Part-time,77,112,33,75.5,3
+2023,Business,Full-time,122,283,56,71.7,3.2
+2022,Data Analytics,Part-time,43,77,14,71.5,3.1
+2023,Data Analytics,Online,49,109,22,64.1,3.4
+2021,Computing,Part-time,57,100,16,68.3,3.2
+2019,Data Analytics,Part-time,45,80,21,70.3,2.9
+2021,Cybersecurity,Online,47,72,13,71.9,3.4
+2016,Computing,Online,42,49,7,62.9,3.5
+2017,Cybersecurity,Full-time,57,96,28,69.6,3.7
+2021,Computing,Full-time,128,189,65,69.5,3.4
+2017,Cybersecurity,Full-time,73,99,25,74.4,3.4
+2017,Cybersecurity,Full-time,61,102,22,74,3.2
+2024,Data Analytics,Online,34,46,9,70.5,3
+2019,Data Analytics,Online,50,57,8,63.4,3.3
+2016,Data Analytics,Part-time,26,40,9,66.2,3.3
+2016,Data Analytics,Part-time,33,36,5,65.2,3.3
+2018,Computing,Online,43,61,12,60.1,3.6
+2021,Computing,Online,51,67,17,68.1,3.8
+2017,Business,Online,117,64,16,65.5,2.5
+2021,Computing,Full-time,131,205,71,70.3,3.6
+2025,Computing,Full-time,121,217,64,66.1,3.1
+2025,Data Analytics,Part-time,54,97,22,71.4,3.4
+2021,Data Analytics,Online,26,35,6,71.6,4.1
+2016,Business,Part-time,62,92,20,59.9,3.9
+2020,Cybersecurity,Full-time,60,120,39,63.7,3.1
+2019,Computing,Full-time,89,191,59,68.2,3.1
+2023,Data Analytics,Full-time,82,170,65,68.9,3.5
+2024,Computing,Full-time,103,221,52,60.5,2.5
+2016,Cybersecurity,Part-time,41,66,15,67.4,2.8
+2023,Business,Part-time,60,103,18,66.3,3
+2020,Data Analytics,Online,40,72,13,58.8,3.3
+2025,Cybersecurity,Part-time,53,78,20,59.6,3
+2022,Computing,Full-time,96,167,65,67.2,3.4
+2022,Computing,Full-time,95,233,63,65.5,3.4
+2016,Computing,Part-time,47,71,26,74.9,3.9
+2019,Computing,Online,44,75,10,60.6,3.3
+2019,Business,Full-time,96,197,73,64.7,3.6
+2024,Business,Online,76,126,32,59.5,2.6
+2019,Computing,Online,39,61,13,59.4,3.7
+2020,Data Analytics,Part-time,57,75,5,68.5,3.6
+2020,Data Analytics,Online,40,75,17,59.3,3.1
+2018,Business,Part-time,44,65,26,61.1,3.8
+2018,Business,Online,50,46,10,65.7,3.2
+2016,Business,Part-time,57,82,27,62.4,3.4
+2020,Cybersecurity,Online,46,82,19,68.3,3.1
+2023,Computing,Full-time,130,254,74,62.6,3.5
+2019,Cybersecurity,Part-time,47,66,25,67.2,3.5
+2021,Cybersecurity,Online,46,67,14,71.5,3.4
+2022,Data Analytics,Full-time,99,177,34,69.9,2.5
+2025,Business,Part-time,56,75,12,64.8,3
+2022,Business,Full-time,90,185,55,63.2,3.2
+2024,Business,Part-time,57,87,26,71.3,4.1
+2016,Cybersecurity,Full-time,45,72,20,68,3.6
+2019,Data Analytics,Part-time,41,65,24,66.8,2.9
+2024,Cybersecurity,Full-time,73,124,68,63.6,3.8
+2024,Cybersecurity,Part-time,48,87,26,61.7,
+2021,Business,Full-time,92,183,50,69.2,3.6
+2018,Cybersecurity,Part-time,35,37,12,66.6,3.2
+2016,Business,Full-time,97,152,41,64.8,3.2
+2023,,Part-time,68,89,28,78.2,3
+2018,Data Analytics,Part-time,32,38,9,66.8,2.8
+2021,Computing,Full-time,115,170,63,66.5,3.8
+2018,Data Analytics,,46,102,26,70.1,3.2
+2016,Data Analytics,Part-time,34,35,8,65.5,
+2016,Computing,Part-time,47,338,25,72,3.6
+2018,Data Analytics,Full-time,61,139,31,69.7,3.7
+2024,Cybersecurity,Part-time,52,79,24,62.7,2.9
+2019,Cybersecurity,Full-time,60,156,58,68.6,3
+2020,Data Analytics,Full-time,71,102,43,69.4,3.6
+2024,Computing,Part-time,44,73,23,68.8,3.1
+2021,Computing,Full-time,100,240,54,71.8,3.4
+2020,Computing,Online,65,101,19,67,3.3
+2018,Business,Online,51,,10,69,3.3
+2018,Business,Full-time,104,137,56,60.4,3.3
+2018,Cybersecurity,Full-time,72,156,35,64.7,3
+2023,Computing,Full-time,109,224,68,62.4,3.3
+2024,Cybersecurity,Online,38,58,11,66.5,3.4
+2018,Computing,Part-time,42,107,20,64.7,4
+2016,Business,Part-time,62,79,23,65,3.5
+2020,Computing,Part-time,53,85,26,71.4,3.7
+2024,Computing,Part-time,44,65,19,67.1,3.6
+2017,Computing,Full-time,76,144,48,68.4,3.7
+2018,Data Analytics,Full-time,57,150,32,69.9,3.8
+2025,Data Analytics,Part-time,56,105,28,72,3.3
+2022,Business,Online,47,95,33,64.2,2.9
+2025,Computing,Online,69,100,23,65.6,3
+2023,Business,Part-time,64,122,17,66.2,3.3
+2018,Cybersecurity,Online,23,53,9,67.7,3.6
+2019,Data Analytics,Full-time,71,133,42,64.7,3.2
+2023,Cybersecurity,Part-time,51,104,116,67.3,3.7
+2024,Data Analytics,Full-time,103,183,53,69.7,3.7
+2023,Data Analytics,Online,45,106,14,63.5,
+2024,Computing,Full-time,136,243,60,61,3
+2021,Computing,Part-time,60,110,19,65.5,4
+2023,Cybersecurity,Full-time,72,158,57,72.2,4.1
+2020,Business,Online,73,106,25,67.7,2.9
+2021,Computing,Part-time,70,99,19,69.1,3.5
+2022,Business,Online,54,63,35,65.2,3.1
+2022,Data Analytics,Online,36,21,10,64,3.1
+2024,Business,Online,77,133,34,63.3,2.9
+2024,Business,Part-time,54,77,32,68.2,4.2
+2018,Data Analytics,Part-time,32,32,10,67.4,3.1
+2016,Data Analytics,Full-time,76,96,28,70.3,3.6
+2025,Cybersecurity,Online,50,42,20,65.9,3.5
+2025,Cybersecurity,Online,37,53,17,65.5,3.6
+2020,Cybersecurity,Part-time,33,47,10,62.7,3.2
+2025,Business,Full-time,135,230,58,,3.5
+2016,Computing,Part-time,41,68,21,76.6,3.8
+2025,Cybersecurity,Part-time,55,63,14,61.9,3
+2018,Cybersecurity,Full-time,70,151,39,62.5,3.3
+2022,Cybersecurity,Part-time,36,49,12,71.9,3.5
+2016,Computing,Part-time,36,60,18,75.9,4
+2022,Computing,Online,53,92,24,66.2,3.4
+2022,Cybersecurity,Part-time,32,37,13,74.1,3.3
+2016,Business,Online,57,78,23,68.6,3.6
+2017,Business,Online,99,64,13,63.2,2.7
+2021,Data Analytics,Full-time,72,130,41,76.3,4.2
+2019,Cybersecurity,Online,57,56,21,57.2,3
+2025,Business,Full-time,117,223,58,65.5,2.9
+2019,Data Analytics,Full-time,65,133,40,63.3,3.2
+2016,Data Analytics,Online,32,96,27,61.2,2.8
+2019,Cybersecurity,Part-time,41,65,26,72.6,3.5
+2016,Business,Part-time,51,80,18,63.9,3.8
+2017,Computing,Full-time,88,160,47,,3.7
+2023,Data Analytics,Part-time,64,91,35,70,3.4
+2024,Cybersecurity,Online,38,49,8,64.4,3.3
+2018,Data Analytics,Full-time,54,130,26,69.4,3.8
+2016,Business,Online,59,81,22,63.4,3.5
+2025,Business,Online,60,116,25,72.4,3.9
+2024,Data Analytics,Online,30,47,11,65.5,3
+2021,Data Analytics,Online,23,41,8,73.1,3.8
+2023,Business,Full-time,129,203,58,72.3,3.5
+2020,Business,Full-time,130,216,72,68.1,3.5
+2022,Business,Online,52,95,37,62.8,3.2
+2024,Cybersecurity,Part-time,43,88,19,63.3,2.8
+2023,Business,Online,58,125,26,62.3,2.9
+2016,Computing,Full-time,82,171,40,67.4,3.4
+2019,Computing,Full-time,83,159,54,69.1,3.2
+2021,Data Analytics,Part-time,52,65,14,62,3.3
+2017,Data Analytics,Part-time,43,31,14,63.8,4
+2021,Business,Part-time,78,117,32,70.8,2.8
+2020,Cybersecurity,Online,44,77,21,70.1,3
+2021,Business,Full-time,118,199,50,,4.2
+2024,Cybersecurity,Online,26,54,11,63.1,3.3
+2021,Business,Full-time,101,163,73,70.2,3.7
+2025,Computing,Part-time,79,118,34,74.4,
+2021,Cybersecurity,Online,51,60,17,72.8,3.4
+2022,Computing,Online,56,92,20,67.1,3.3
+2025,Cybersecurity,Part-time,50,61,17,60.5,3
+2019,Cybersecurity,Part-time,50,61,24,70.7,3.6
+2020,Computing,Part-time,58,81,28,74.4,3.2
+2019,Business,Part-time,44,80,14,60.8,2.9
+2019,Cybersecurity,Full-time,72,177,58,70.8,3.8
+2020,Data Analytics,Part-time,49,78,10,69.9,3.6
+2021,Computing,Full-time,109,197,66,70.3,3.4
+2020,Business,Part-time,47,109,38,59.4,3.4
+2018,Data Analytics,Online,67,109,44,67.4,3.2
+2022,Data Analytics,Full-time,99,157,38,66.7,2.6
+2018,Business,Full-time,87,153,43,63,2.7
+2023,Cybersecurity,Full-time,85,122,43,71.4,4.1
+2018,Data Analytics,Full-time,80,129,28,70.5,4.1
+2023,Cybersecurity,Full-time,79,133,62,70.9,4.1
+2018,Computing,Online,41,64,13,58.5,3.4
+2025,Business,Full-time,118,190,51,60.3,3.4
+2017,Business,Part-time,48,57,20,71.3,3.2
+2021,Computing,Full-time,98,209,66,67.8,3.4
+2019,Data Analytics,Full-time,62,130,44,69.2,3.1
+2019,Computing,Online,43,64,8,56.6,3.7
+2018,Business,Full-time,103,149,56,58.2,3.1
+2019,Data Analytics,Part-time,46,62,26,67.1,2.8
+2023,Business,Part-time,52,100,21,65.9,2.8
+2020,Business,Online,66,122,23,65.7,2.9
+2019,Cybersecurity,Part-time,52,66,20,70.2,3.3
+2025,Cybersecurity,Part-time,49,78,14,59.9,3
+2025,Cybersecurity,Full-time,66,143,34,70.3,3.4
+2018,Data Analytics,Full-time,77,128,30,69.2,3.7
+2020,Data Analytics,Part-time,46,99,5,68,3.4
+2024,Business,Part-time,44,76,33,70.5,3.4
+2019,Cybersecurity,Full-time,76,137,42,67.2,3
+2019,Cybersecurity,Part-time,49,82,27,71.2,3.5
+2025,Computing,Part-time,78,108,31,71.8,4
+2023,Cybersecurity,Full-time,96,146,65,66.8,3.7
+2025,Data Analytics,Full-time,108,175,42,67.4,3.8
+2018,Cybersecurity,Online,37,45,12,68.8,3.7
+2018,Computing,Online,39,60,12,60.5,2.9
+2018,Cybersecurity,Online,31,52,15,67.6,3.9
+2019,Data Analytics,Online,44,45,5,62.9,3.1
+2020,Data Analytics,Online,34,61,17,60.4,3
+2023,Data Analytics,Part-time,44,87,40,68.2,3.5
+2025,Data Analytics,Online,33,69,20,67,3.1
+2017,Cybersecurity,Part-time,40,26,9,70,3
+2018,Data Analytics,Part-time,35,30,6,67.6,
+2020,Cybersecurity,Online,35,61,20,68.3,2.9
+2019,Cybersecurity,Full-time,71,169,64,68.3,3.4
+2020,Computing,Online,58,77,21,67.3,2.9
+2020,Computing,Part-time,67,94,33,71.7,3.4
+2020,Business,Online,63,106,34,65.9,3.2
+2016,Cybersecurity,Full-time,52,83,21,71.6,3
+2016,Business,Part-time,59,96,21,61.8,3.4
+2023,Computing,Part-time,55,97,29,74.9,2.9
+2022,Cybersecurity,Online,43,63,14,71.8,3.4
+2024,Business,Part-time,52,87,37,71.3,3.8
+2024,Cybersecurity,Full-time,71,170,55,63.9,3.6
+2021,Business,Part-time,63,115,29,66,2.7
+2020,Data Analytics,Online,36,76,13,60.5,2.9
+2017,Cybersecurity,Online,25,29,14,63.8,3.1
+2018,Computing,Part-time,54,92,22,65.5,3.3
+2022,Cybersecurity,Part-time,47,56,8,68.7,3.6
+2025,Data Analytics,Online,39,75,13,68.8,2.9
+2021,Business,Full-time,104,156,50,71.8,4
+2019,Data Analytics,Full-time,68,123,45,68.4,3.5
+2022,Cybersecurity,Online,35,78,23,70.3,3.4
+2019,Cybersecurity,Online,45,68,24,60.3,2.9
+2024,Data Analytics,Part-time,46,60,10,72.4,3.6
+2016,Data Analytics,Online,38,72,22,61,3.3
+2018,Business,Part-time,49,69,20,62.8,3.5
+2018,Cybersecurity,Full-time,63,126,39,68.7,3
+2023,Computing,Online,45,87,55,65.2,3.2
+2016,Computing,Online,42,52,11,59.4,3.6
+2025,Business,Full-time,112,175,65,64.4,3.3
+2025,Business,Full-time,112,175,65,64.4,3.3
+2020,Cybersecurity,Online,196,79,108,67.7,3.2
+2023,Data Analytics,Part-time,61,101,39,67.9,3
+2019,Computing,Part-time,47,65,21,65.2,3
+2024,Business,Full-time,133,215,73,67.4,3.5
+2025,Business,Part-time,69,60,15,63.2,3.4
+2019,Business,Part-time,54,82,17,57.7,2.5
+2019,Data Analytics,Online,53,61,7,60.5,3.2
+2023,Data Analytics,Part-time,65,97,34,68.4,3.9
+2017,Business,Online,119,50,13,60.8,2.9
+2023,Data Analytics,Full-time,90,177,52,73.2,3.9
+2018,Computing,Part-time,54,101,16,64.9,3.6
+2016,Computing,Online,35,50,8,61.5,3.6
+2024,Computing,Online,45,66,16,68.8,3.6
+2020,Data Analytics,Part-time,46,94,9,68.3,3.3
+2019,Business,Part-time,56,92,18,58.2,3.3
+2018,Business,Part-time,50,80,22,60.6,4
+2021,Cybersecurity,Part-time,60,85,29,71,3.6
+2018,Business,Part-time,48,76,28,62.8,3.7
+2022,Data Analytics,Part-time,50,82,17,69.5,3.1
+2018,Data Analytics,Full-time,65,134,32,69.4,3.8
+2025,Computing,Part-time,70,86,30,73.3,3.8
+2025,Cybersecurity,Full-time,74,110,37,68.6,3.5
+2023,Data Analytics,Online,51,94,19,60.1,3.8
+2017,Business,Full-time,100,164,58,67.1,3.4
+2017,Cybersecurity,Full-time,67,96,30,71.5,3.2
+2020,Data Analytics,Part-time,44,86,7,70.5,3.9
+2020,Computing,Full-time,102,235,72,69.4,3.9
+2016,Business,Full-time,107,173,45,61.4,3.8
+2019,Data Analytics,Full-time,65,120,46,70.2,3.1
+2020,Computing,Part-time,60,106,25,74.8,3.6
+2016,Computing,Full-time,102,128,45,69.4,3.4
+2017,Computing,Part-time,57,86,26,64.9,3.4
+2021,Business,Online,52,83,22,67.7,3.3
+2021,Computing,Online,47,78,19,68.3,3.9
+2021,Data Analytics,Full-time,86,135,40,72.7,3.8
+2017,Data Analytics,Full-time,80,131,49,69.5,3.6
+2016,Cybersecurity,Part-time,39,63,18,67.3,3.2
+2021,Data Analytics,Online,26,44,7,75.4,3.8
+2025,Business,Part-time,69,91,13,61.6,3.1
+2016,Computing,Part-time,39,74,20,74.7,3.8
+2023,Data Analytics,Online,49,96,14,61.1,3.5
+2017,Data Analytics,Part-time,34,32,13,65.9,4.3
+2017,Data Analytics,Online,41,64,10,72.7,3.4
+2019,Business,Full-time,119,198,78,59.9,3.7
+2019,Computing,Full-time,86,167,54,66.5,3.3
+2018,Computing,Online,34,52,12,61.3,3.6
+2021,Business,Online,57,76,19,67,3.1
+2022,Computing,Part-time,67,90,12,67.3,3.2
+2021,Computing,Online,54,75,25,64.9,3.8
+2018,Data Analytics,Online,49,122,32,69.1,3.8
+2024,Cybersecurity,Online,37,62,11,63.6,3.2
+2021,Cybersecurity,Part-time,60,,22,74.1,3.5
+2016,Data Analytics,Online,48,92,18,60.5,3.5
+2022,Data Analytics,Full-time,108,176,47,68.2,2.5
+2019,Cybersecurity,Part-time,46,74,20,68.4,3.4
+2021,Computing,Part-time,56,113,16,65.1,3.4
+2016,Cybersecurity,Full-time,44,92,17,66.3,3.4
+2021,Business,Part-time,61,115,29,65.7,3
+2022,Computing,Online,64,91,17,69.4,3.2
+2016,Data Analytics,Part-time,30,31,9,60.9,3.6
+2021,Computing,Full-time,122,191,54,71.1,3.9
+2023,Data Analytics,Full-time,102,160,62,71.6,4
+2023,Cybersecurity,Full-time,84,151,58,69.9,4
+2021,Cybersecurity,Part-time,53,94,36,75.3,3.4
+2021,Cybersecurity,Part-time,54,94,24,49.5,3.5
+2020,Data Analytics,Online,39,76,16,61.4,3
+2022,Computing,Part-time,60,88,16,63.6,3.8
+2016,Data Analytics,Full-time,75,111,27,70.1,3.4
+2018,Cybersecurity,Part-time,28,45,12,66.4,3.5
+2019,Data Analytics,Part-time,47,55,15,65.4,3
+2021,Business,Online,51,73,17,62.2,3.4
+2016,Data Analytics,Online,44,89,20,,3.2
+2025,Computing,Online,48,74,26,63.2,3
+2017,Data Analytics,Part-time,42,33,14,61.6,3.6
+2022,Cybersecurity,Online,37,68,24,71.4,3.4
+2025,Data Analytics,Full-time,107,166,57,67,3.7
+2021,Cybersecurity,Full-time,69,102,32,70.8,3.9
+2020,Business,Full-time,107,218,56,72.7,3.4
+2017,Data Analytics,Part-time,42,29,14,64.6,3.7
+2024,Cybersecurity,Online,30,42,15,63.1,3.1
+2018,Cybersecurity,Full-time,73,140,43,64.6,3.2
+2019,Cybersecurity,Online,54,64,18,58.8,2.9
+2024,Computing,Part-time,62,53,18,67.3,3.8
+2020,Business,Full-time,107,201,59,69.5,3.4
+2021,Data Analytics,Online,27,39,11,74.3,3.4
+2020,Cybersecurity,Full-time,61,130,38,64.6,3.3
+2022,Computing,Online,53,83,18,65.4,3.1
+2021,Computing,Online,49,78,18,66.4,3.6
+2023,Computing,Part-time,60,108,33,75.9,3.6
+2023,Business,Online,71,112,32,64.4,2.8
+2018,Data Analytics,Part-time,30,20,7,71.6,2.9
+2025,Data Analytics,Full-time,94,150,54,68,3.6
+2020,Computing,Part-time,52,94,28,76.6,3.5
+2020,Business,Part-time,50,99,32,60.2,3.3
+2022,Computing,Part-time,54,101,12,67.1,2.9
+2018,Business,Part-time,51,75,19,60.5,3.9
+2016,Business,Full-time,113,186,52,,3.5
+2023,Business,Online,62,118,27,65.7,2.7
+2020,Business,Part-time,41,86,30,60,3.3
+2022,Computing,Online,57,90,25,67.8,2.9
+2018,Business,Full-time,109,144,59,61.3,3.1
+2020,Cybersecurity,Full-time,61,127,51,,3.2
+2020,Data Analytics,Part-time,48,98,12,69.9,3.4
+2017,Data Analytics,Online,45,63,11,75.5,3.2
+2023,Business,Full-time,113,270,73,71.8,3.3
+2025,Business,Part-time,77,75,9,62.1,2.9
+2020,Business,Online,73,97,29,63.8,3.1
+2024,Cybersecurity,Full-time,67,133,52,65.2,4.2
+2024,Cybersecurity,Part-time,45,80,20,61.6,
+2021,Business,Online,69,77,21,66.3,3.7
+2021,Cybersecurity,Part-time,51,107,30,73.4,3.4
+2017,Business,Full-time,120,187,65,68.3,3.4
+2021,Computing,Online,47,76,21,67.1,3.5
+2025,Cybersecurity,Online,41,39,20,64.4,3.5
+2024,Cybersecurity,Part-time,49,71,26,61.4,2.9
+2020,Data Analytics,Full-time,73,,50,73.3,3.6
+2025,Data Analytics,Online,31,82,11,65.8,3.2
+2019,Cybersecurity,Online,53,52,18,58.9,3.2
+2022,Cybersecurity,Full-time,76,124,37,70.2,3.7
+2019,Business,Part-time,49,81,22,61.6,3.1
+2019,Computing,Part-time,44,73,22,64.5,3.1
+2025,Business,Full-time,136,242,72,65.5,3.1
+2018,Business,Full-time,88,152,37,59.5,3.1
+2023,Business,Part-time,75,89,16,69.3,3.2
+2017,Data Analytics,Full-time,70,128,53,71.8,3.5
+2020,Business,Full-time,130,213,65,70.2,3.7
+2020,Data Analytics,Full-time,66,97,40,69.3,3.6
+2025,Data Analytics,Part-time,53,81,29,70.7,3.3
+2019,Business,Part-time,50,84,24,60.2,2.6
+2022,Business,Full-time,107,201,59,63.9,3.1
+2020,Computing,Online,48,65,14,67.6,3.4
+2018,Cybersecurity,Full-time,62,125,41,65.2,3.1
+2022,Business,Full-time,109,194,54,62.3,2.9
+2024,Cybersecurity,Full-time,74,147,54,64.2,3.4
+2018,Cybersecurity,Online,26,48,10,66.7,3.6
+2019,Business,Online,47,86,24,68.4,3.4
+2016,Cybersecurity,Part-time,38,56,19,67.1,2.6
+2024,Data Analytics,Online,36,56,9,63.1,3.3
+2017,Cybersecurity,Full-time,63,133,22,72.2,3.5
+2025,Business,Full-time,139,222,51,62.2,3.1
+2019,Business,Full-time,125,206,68,63.7,3.3
+2018,Data Analytics,Full-time,57,150,32,69.9,3.8
+2019,Cybersecurity,Full-time,80,139,72,71.4,3.3
+2017,Data Analytics,Online,43,66,11,76.1,3.4
+2023,Cybersecurity,Full-time,95,157,39,66.8,3.9
+2022,Cybersecurity,Online,37,77,20,72.3,3
+2023,Computing,Full-time,116,214,66,65.1,3.4
+2025,Computing,Part-time,62,117,27,73.4,3.5
+2016,Cybersecurity,Part-time,34,63,12,67.1,2.7
+2018,Data Analytics,Full-time,57,125,35,70.4,3.8
+2017,Computing,Part-time,57,99,29,65.8,3.1
+2019,Business,Part-time,50,80,17,56.4,3.1
+2019,Computing,Online,39,56,10,60.3,3.1
+2024,Cybersecurity,Full-time,74,157,51,66.3,3.5
+2019,Computing,Part-time,48,68,19,65.4,3.1
+2020,Business,Part-time,53,109,35,60.1,3.2
+2020,Computing,Full-time,95,205,76,71,
+2016,Cybersecurity,Full-time,50,75,11,63.6,3.3
+2020,Computing,Full-time,78,243,67,67.3,
+2017,Cybersecurity,Online,20,26,5,60.5,2.9
+2016,Business,Full-time,85,150,51,64.1,3.3
+2016,Cybersecurity,Online,33,60,27,71.9,4.1
+2024,Cybersecurity,Part-time,56,89,24,62.4,3.2
+2021,Data Analytics,Online,23,38,8,72.6,3.6
+2018,Business,Part-time,40,68,26,61.8,3.4
+2022,Cybersecurity,Part-time,42,43,13,70.7,3.6
+2017,Business,Part-time,49,59,19,71.1,2.9
+2018,Business,Part-time,49,71,19,62.3,3.7
+2024,Computing,Online,43,77,16,72.1,3.3
+2024,Computing,Online,47,70,12,72.5,3.4
+2016,Business,Full-time,83,93,43,60.7,3.6
+2018,Computing,Online,41,62,12,58.9,3.1
+2018,Data Analytics,Part-time,32,28,6,69.9,3.1
+2018,Computing,Online,39,60,11,59.2,3.1
+2020,Data Analytics,Online,32,67,11,59.2,3
+2019,Business,Full-time,126,192,70,60.6,3.4
+2019,Data Analytics,Part-time,41,67,21,65.8,3
+2021,Data Analytics,Full-time,73,142,37,,4
+2022,Business,Online,45,99,35,64.8,3.1
+2023,Cybersecurity,Full-time,86,149,44,69.2,4
+2018,Computing,Online,46,72,14,58.1,3.3
+2025,Cybersecurity,Part-time,54,68,17,60.9,2.7
+2023,Cybersecurity,Full-time,85,144,30,70.1,4.4
+2022,Business,Part-time,62,118,27,69.4,3
+2021,Data Analytics,Part-time,44,83,14,65.1,3.3
+2021,Data Analytics,Online,23,,9,73.9,3.8
+2018,Data Analytics,Full-time,71,141,38,70.1,3.8
+2025,Computing,Part-time,70,122,25,73.8,3.9
+2021,Cybersecurity,Online,41,72,15,70.9,3.7
+2016,Cybersecurity,Online,36,58,29,72.8,4
+2023,Business,Full-time,87,208,67,74.2,3.3
+2021,Business,Online,57,76,19,67,3.1
+2019,Data Analytics,Part-time,45,66,20,68.3,2.6
+2019,Computing,Part-time,51,56,24,68.9,3.4
+2016,Data Analytics,Online,32,83,17,64.3,3.1
+2023,Cybersecurity,Online,34,65,13,66.7,3.7
+2019,Computing,Part-time,46,71,19,66.7,3.2
+2022,Data Analytics,Part-time,41,88,13,72.5,3.1
+2016,Business,Part-time,70,77,20,64.1,3.4
+2020,Cybersecurity,Online,43,100,20,69.5,3.1
+2020,Data Analytics,Online,45,66,17,60.6,3.3
+2019,Data Analytics,Part-time,49,72,21,65.4,3
+2019,Business,Part-time,59,75,17,61.6,3.3
+2023,Data Analytics,Online,57,88,20,65,3.5
+2020,Business,Part-time,46,87,34,60.6,3.4
+2019,Cybersecurity,Full-time,71,146,52,68.2,3.2
+2024,Business,Part-time,58,72,34,68.2,4
+2021,Computing,Full-time,110,219,51,68.7,3.4
+2024,Data Analytics,Part-time,41,74,8,67.7,2.9
+2019,Data Analytics,Part-time,45,81,17,68,3
+2025,Data Analytics,Online,39,68,16,64.4,3.1
+2021,Computing,Online,49,64,17,65,3.8
+2025,Data Analytics,Online,32,69,21,70.6,3
+2016,Business,Full-time,102,145,48,64.6,3.3
+2020,Business,Part-time,52,99,30,59.9,3.1
+2021,Cybersecurity,Online,42,63,16,70.2,3.2
+2016,Cybersecurity,Full-time,62,82,16,69,3.5
+2019,Computing,Full-time,111,183,61,67.9,2.8
+2017,Business,Part-time,46,52,18,72.3,3.3
+2019,Data Analytics,Online,50,55,9,63.3,3
+2021,Business,Full-time,102,172,66,72.5,3.6
+2025,Computing,Part-time,78,93,24,70.3,3.8
+2016,Computing,Part-time,42,75,22,74.6,3.9
+2024,Cybersecurity,Part-time,54,92,23,61.6,3.2
+2020,Business,Full-time,121,201,67,72.2,3.3
+2021,Data Analytics,Full-time,91,130,45,73.9,
+2018,Business,Part-time,61,79,20,59.4,3.8
+2021,Business,Full-time,93,202,68,67.8,3.6
+2023,Computing,Full-time,93,212,71,64.9,3
+2024,Data Analytics,Part-time,46,54,9,76.5,3.4
+2022,Data Analytics,Part-time,52,77,14,72.5,3
+2021,Cybersecurity,Full-time,73,111,34,71.5,4.1
+2021,Business,Part-time,66,104,31,69.2,2.6
+2019,Computing,Full-time,113,169,57,69.2,3.3
+2016,Data Analytics,Part-time,26,38,5,62.2,3.4
+2024,Data Analytics,Online,41,52,7,67.1,3.1
+2023,Computing,Part-time,59,111,37,76.4,3.3
+2019,Computing,Online,43,48,6,59.7,3.5
+2020,Computing,Part-time,59,94,27,75.8,3.5
+2022,Data Analytics,Online,25,27,8,66.4,3.3
+2022,Computing,Online,52,,22,65.2,2.9
+2024,Data Analytics,Full-time,102,154,60,69.7,3.5
+2019,Business,Part-time,57,104,19,59.2,3
+2019,Data Analytics,Full-time,68,160,43,67.2,3.4
+2022,Cybersecurity,Full-time,76,143,40,69.1,4
+2021,Data Analytics,Online,18,45,9,75.2,3.8
+2018,Data Analytics,Full-time,63,124,25,70.2,3.9
+2020,Data Analytics,Part-time,49,90,5,66.6,3.3
+2025,Data Analytics,Part-time,60,73,29,67,3.4
+2016,Business,Online,57,95,18,67.5,3.6
+2016,Cybersecurity,Online,29,59,27,70,3.5
+2017,Business,Online,115,60,21,64.2,2.7
+2021,Business,Online,65,70,23,65.7,3.4
+2016,Computing,Part-time,43,76,24,76.6,3.9
+2024,Business,Part-time,50,71,38,67.7,4.1
+2020,Computing,Online,57,73,16,69.8,2.9
+2019,Business,Part-time,57,86,21,62.9,2.9
+2020,Business,Full-time,120,185,58,73.9,3.5
+2018,Computing,Online,48,62,11,60.2,3.5
+2019,Business,Part-time,44,74,22,61.2,3.1
+2020,Computing,Online,47,70,18,70.9,3
+2019,Computing,Online,47,59,6,61.1,3.7
+2024,Cybersecurity,Online,44,46,13,63.3,2.9
+2020,Business,Part-time,50,111,28,60.4,3.4
+2024,Data Analytics,Online,29,52,8,63,3.4
+2021,Data Analytics,Full-time,87,140,37,75.3,3.9
+2021,Computing,Part-time,61,105,24,66.7,3.5
+2016,Data Analytics,Full-time,72,124,29,65.7,3.9
+2021,Business,Full-time,91,183,77,68.4,3.5
+2020,Computing,Part-time,60,86,26,72.6,3.5
+2021,Business,Part-time,61,121,28,67.6,2.4
+2023,Business,Part-time,66,114,15,65.4,3
+2022,Data Analytics,Part-time,37,73,8,71.2,3.3
+2025,Computing,Online,72,110,24,61.2,3
+2021,Cybersecurity,Online,47,61,14,70.8,3.5
+2023,Cybersecurity,Part-time,44,76,27,71,3.8
+2020,Business,Online,64,114,29,67.9,3.1
+2018,Business,Online,57,60,13,69.3,3.3
+2023,Data Analytics,Full-time,88,165,62,70.4,4.1
+2020,Computing,Online,65,88,20,66.9,3.2
+2018,Data Analytics,Full-time,65,124,29,71.3,3.9
+2019,Data Analytics,Part-time,46,74,22,67.9,3.1
+2020,Cybersecurity,Online,47,90,15,68.3,3.2
+2017,Cybersecurity,Part-time,36,30,5,70.7,2.7
+2020,Business,Part-time,53,100,40,61.7,3.5
+2023,Business,Part-time,68,93,18,65.1,3
+2025,Computing,Part-time,74,123,25,76.4,4
+2018,Business,Online,45,53,5,66.3,3.1
+2017,Data Analytics,Full-time,72,159,50,72.1,3.6
+2024,Data Analytics,Full-time,95,177,46,67.5,3.1
+2023,Cybersecurity,Part-time,40,101,31,67.4,3.5
+2022,Business,Full-time,111,229,40,61.7,3
+2018,Computing,Online,38,57,16,58.7,3.7
+2017,Cybersecurity,Online,20,28,14,63.7,3
+2022,Computing,Full-time,111,164,47,66.6,3.4
+2016,Cybersecurity,Part-time,35,64,20,67.9,2.7
+2022,Computing,Online,49,102,19,66.3,3.3
+2018,Computing,Part-time,53,104,18,67,3.5
+2022,Data Analytics,Full-time,83,178,35,64,2.5
+2020,Business,Online,73,124,29,66.3,3.7
+2018,Business,Online,45,59,16,66.5,3.9
+2020,Cybersecurity,Full-time,63,,51,65.4,3.2
+2021,Computing,Online,55,72,19,67,3.7
+2023,Cybersecurity,Full-time,83,156,40,69.3,3.9
+2017,Business,Part-time,40,48,18,73.7,2.8
+2018,Business,Part-time,44,87,30,63,3.6
+2023,Cybersecurity,Full-time,82,153,51,69.1,4.4
+2020,Cybersecurity,Online,41,89,20,65.1,3
+2017,Computing,Full-time,70,176,44,70.3,3.5
+2024,Data Analytics,Full-time,87,152,63,67.7,3.1
+2020,Cybersecurity,Part-time,29,35,8,60.2,3.2
+2017,Cybersecurity,Full-time,60,112,26,71.2,3.3
+2021,Computing,Full-time,102,186,61,66.4,3.6
+2019,Business,Full-time,116,207,65,62.5,3.6
+2024,Data Analytics,Part-time,35,70,12,69.6,3.3
+2019,Data Analytics,Part-time,45,71,23,69.8,2.7
+2022,Cybersecurity,Online,36,58,25,68.9,3.5
+2020,Data Analytics,Online,40,68,15,58.5,
+2020,Cybersecurity,Part-time,27,40,11,60.9,3.6
+2024,Computing,Online,39,58,15,71.4,3.6
+2021,Data Analytics,Online,30,35,6,74.9,3.6
+2020,Cybersecurity,Online,39,78,18,67.8,3.1
+2022,Business,Online,53,83,32,65.7,3
+2023,Computing,Online,44,85,57,66.2,3.7
+2020,Computing,Part-time,68,93,28,72.9,3.5
+2022,Data Analytics,Online,35,25,9,66.7,2.9
+2016,Business,Online,63,81,20,66,3.7
+2016,Computing,Online,33,56,8,61.3,3.8
+2018,Computing,Online,42,57,13,59.8,3.3
+2023,Cybersecurity,Full-time,79,125,52,69.5,3.8
+2021,Business,Part-time,57,130,29,63.9,2.8
+2022,Computing,Online,59,66,16,68,2.9
+2016,Computing,Part-time,48,83,28,73.8,4
+2018,Business,Part-time,48,75,22,62.3,3.8
+2018,Data Analytics,Part-time,25,30,7,72.4,
+2017,Business,Full-time,105,185,53,66,3.1
+2023,Data Analytics,Full-time,80,172,59,70.5,3.7
+2018,Business,Online,40,65,12,68.6,3.4
+2018,Business,Online,40,65,12,68.6,3.4
+2018,Business,Part-time,50,75,22,63.7,3.8
+2022,Data Analytics,Online,34,24,7,69.2,3.3
+2019,Business,Part-time,60,91,20,63.3,3.3
+2018,Computing,Full-time,80,140,53,69.8,4
+2017,Data Analytics,Part-time,41,32,17,66.8,3.9
+2023,Business,Full-time,101,213,67,72.2,2.8
+2017,Cybersecurity,Full-time,57,110,22,72.5,3.4
+2017,Data Analytics,Full-time,76,136,51,73,3.9
+2022,Business,Online,50,84,29,64.3,2.9
+2024,Data Analytics,Part-time,47,76,11,69.8,3.3
+2024,Cybersecurity,Online,39,55,11,63,3
+2021,Data Analytics,Part-time,45,76,15,63.3,3.4
+2025,Business,Full-time,138,181,53,62.8,3.3
+2022,Business,Part-time,68,116,34,67.8,2.9
+2017,Cybersecurity,Part-time,37,24,10,71.7,3
+2022,Computing,Online,60,95,25,65.8,3.3
+2022,Cybersecurity,Full-time,61,128,37,71.9,3.6
+2024,Cybersecurity,Online,40,54,8,62.9,3.2
+2016,Cybersecurity,Part-time,38,60,13,67.6,2.7
+2020,Business,Full-time,105,166,72,73.9,3.6
+2017,Business,Part-time,49,61,18,72,3.1
+2024,Computing,Part-time,52,,14,64,3.5
+2016,Computing,Full-time,85,135,44,68,3.1
+2025,Data Analytics,Full-time,115,172,61,69.9,3.8
+2023,Cybersecurity,Full-time,94,170,49,71.2,4
+2021,Business,Full-time,86,194,64,73.1,4
+2024,Business,Full-time,110,222,60,67.8,3
+2023,Cybersecurity,Part-time,49,93,27,70.1,3.8
+2021,Business,Full-time,111,205,62,71.1,3.7
+2017,Business,Part-time,54,63,17,72.6,3.6
+2019,Data Analytics,Full-time,62,104,48,68.1,3.4
+2024,Cybersecurity,Full-time,81,164,39,68.7,3.5
+2023,Computing,Full-time,110,259,65,65,3.1
+2019,Business,Online,44,79,26,66.1,3.3
+2021,Business,Part-time,70,114,33,67.7,2.8
+2017,Cybersecurity,Full-time,49,123,24,72.4,
+2019,Data Analytics,Online,48,56,5,63.6,3.1
+2023,Business,Part-time,64,111,18,65.9,3
+2018,Cybersecurity,Full-time,65,145,35,65.2,3.1
+2024,Data Analytics,Full-time,98,164,62,70,3.6
+2018,Data Analytics,Online,57,101,41,,3.4
+2018,Business,Part-time,42,73,22,63,3.6
+2022,Cybersecurity,Full-time,57,123,35,,3.6
+2018,Computing,Online,36,59,12,62.2,3.1
+2016,Business,Part-time,66,73,19,63.2,3.4
+2018,Computing,Online,41,67,12,62.8,3
+2021,Data Analytics,Part-time,38,70,10,62.1,3.7
+2018,Computing,Online,40,63,19,61.2,3.2
+2023,Cybersecurity,Full-time,94,132,51,69.6,
+2017,Business,Online,139,51,21,66.6,2.7
+2022,Business,Full-time,111,205,50,63.9,3.2
+2025,Data Analytics,Online,37,80,9,69.2,3.1
+2020,Data Analytics,Part-time,39,81,7,70.3,3.4
+2020,Business,Full-time,96,179,70,69,3.4
+2020,Business,Online,69,87,35,65.3,3.2
+2023,Computing,Part-time,76,106,31,77.8,3.3
+2020,Cybersecurity,Full-time,55,104,43,63.6,3.2
+2021,Business,Full-time,99,162,66,71.9,3.6
+2024,Data Analytics,Full-time,83,171,53,,3.8
+2017,Data Analytics,Online,45,58,10,73.4,3.5
+2025,Business,Online,61,96,22,66.4,3.6
+2021,Data Analytics,Full-time,90,162,43,72.7,3.9
+2017,Data Analytics,Online,52,62,12,69.8,3.4
+2023,Computing,Online,42,82,40,64.8,3.6
+2025,Data Analytics,Full-time,81,146,60,65.8,3.5
+2024,Data Analytics,Part-time,41,59,16,72.3,3.2
+2016,Business,Full-time,90,167,39,61.1,3.9
+2023,Computing,Full-time,134,202,52,67,3.3
+2023,Computing,Online,44,82,51,65.2,3.8
+2025,Cybersecurity,Part-time,50,69,14,61.3,3
+2022,Computing,Part-time,72,105,15,65.5,3.7
+2018,Data Analytics,Full-time,67,139,29,71.2,3.9
+2020,Cybersecurity,Part-time,28,44,8,63.8,
+2017,Computing,Full-time,88,175,60,72.3,3.5
+2021,Cybersecurity,Part-time,53,94,29,72.5,3.5
+2017,Computing,Online,37,33,8,59.9,2.6
+2018,Computing,Part-time,52,102,20,64.7,3.7
+2016,Cybersecurity,Part-time,45,60,18,68.6,2.5
+2025,Cybersecurity,Part-time,56,74,19,58.4,3.1
+2023,Data Analytics,Online,54,110,24,62.8,3.3
+2020,Computing,Online,57,86,21,65.9,2.4
+2025,Cybersecurity,Full-time,87,128,39,69,3.5
+2023,Computing,Online,50,57,43,68.1,3.7
+2016,Business,Full-time,90,165,49,62.8,3.8
+2024,Data Analytics,Online,37,52,10,67.7,3
+2022,Computing,Online,54,77,17,66,3.4
+2019,Computing,Part-time,45,59,22,62,3.2
+2022,Data Analytics,Full-time,107,130,44,68.4,2.3
+2019,Computing,Online,39,64,10,59.4,
+2023,Computing,Full-time,110,259,65,65,3.1
+2022,Data Analytics,Online,36,27,11,68.8,3.2
+2023,Computing,Online,60,82,53,61.4,3.9
+2022,Business,Full-time,123,170,46,64.2,3.4
+2022,Computing,Part-time,70,94,20,63.3,3.5
+2017,Cybersecurity,Online,18,25,6,61.4,3
+2017,Business,Part-time,45,58,19,75.4,3.2
+2023,Computing,Online,50,62,62,64.3,3.5
+2017,Business,Part-time,46,56,19,73.7,3.2
+2023,Computing,Online,46,72,39,63.8,3.4
+2018,Computing,Online,45,49,18,59.9,2.9
+2018,Business,Online,46,48,12,65,3.1
+2017,Computing,Online,42,36,11,63.1,2.8
+2023,Data Analytics,Full-time,74,155,31,69.8,3.6
+2022,Cybersecurity,Full-time,63,122,36,69.2,3.4
+2019,Cybersecurity,Part-time,55,56,25,66.4,3.3
+2018,Cybersecurity,Full-time,72,145,32,63.2,3
+2024,Computing,Full-time,127,207,57,61.4,3
+2017,Cybersecurity,Online,17,24,9,63.3,2.9
+2024,Data Analytics,Full-time,92,140,46,69.6,3.9
+2017,Computing,Online,49,41,14,61.5,3.3
+2025,Computing,Full-time,109,200,54,64.3,3.2
+2023,Data Analytics,Online,51,92,21,62.6,3.7
+2023,Computing,Part-time,81,91,34,74.8,3
+2024,Computing,Online,55,58,14,75,3.6
+2020,Cybersecurity,Part-time,27,45,9,58.6,3.5
+2018,Data Analytics,Part-time,27,35,10,65.8,3.1
+2023,Cybersecurity,Online,35,72,11,64.8,3.1
+2020,Cybersecurity,Full-time,71,130,45,63.2,3.4
+2016,Cybersecurity,Full-time,52,74,20,68,3.3
+2020,Computing,Full-time,108,208,64,70.4,3.5
+2018,Computing,Full-time,101,94,54,66.9,1.7
+2019,Business,Part-time,63,87,25,,2.9
+2019,Business,Part-time,63,87,25,,2.9
+2023,Cybersecurity,Part-time,55,104,26,70,3.6
+2022,Computing,Part-time,62,82,13,64.8,3.3
+2023,Cybersecurity,Full-time,78,143,56,69.9,4.5
+2025,Business,Online,55,102,21,71,3.7
+2021,Computing,Full-time,101,226,51,72.8,3.4
+2016,Cybersecurity,Online,34,49,30,69.4,4
+2020,Computing,Part-time,64,93,27,74.9,3.4
+2016,Computing,Online,35,52,6,62.5,3.9
+2019,Cybersecurity,Full-time,54,159,55,64.1,3.3
+2021,Computing,Full-time,109,220,59,71.7,3.6
+2023,Business,Online,55,140,39,64,3.1
+2016,Computing,Part-time,36,70,25,75.3,3.9
+2023,Data Analytics,Online,51,108,21,60.3,3.6
+2024,Business,Full-time,143,231,72,66.8,3.3
+2020,Computing,Full-time,104,213,63,,3.6
+2024,Data Analytics,Full-time,91,157,63,69.4,3.4
+2020,Cybersecurity,Online,35,95,22,70.4,3
+2025,Data Analytics,Online,28,63,18,67.6,3
+2024,Computing,Part-time,58,68,21,68.4,3.6
+2018,Cybersecurity,Part-time,33,38,12,66.3,3.2
+2022,Data Analytics,Full-time,107,149,47,69.2,2.8
+2021,Computing,Part-time,72,93,17,67.2,3.7
+2016,Cybersecurity,Part-time,41,57,23,68.5,2.9
+2018,Data Analytics,Online,59,108,34,72,3.7
+2022,Data Analytics,Full-time,111,151,49,66.9,2.3
+2021,Business,Online,60,54,22,63.6,3.4
+2021,Computing,Full-time,81,200,73,69.2,3.6
+2017,Cybersecurity,Full-time,61,121,25,74.1,3
+2016,Data Analytics,Part-time,28,34,7,64,3.4
+2024,Data Analytics,Part-time,39,61,12,74.3,3.3
+2024,Business,Part-time,64,94,33,69.1,3.8
+2017,Computing,Part-time,54,102,27,65.7,3.4
+2017,Business,Online,116,63,16,63.7,2.6
+2025,Data Analytics,Part-time,50,73,31,73.4,3.4
+2021,Computing,Full-time,112,200,67,70.2,3.7
+2023,Cybersecurity,Online,48,63,14,67.8,3.1
+2019,Cybersecurity,Full-time,87,129,43,68.1,3.5
+2023,Computing,Online,56,76,35,64.9,3.7
+2020,Business,Online,74,102,30,64.4,3.3
+2024,Data Analytics,Online,33,43,10,66.1,3.1
+2024,Data Analytics,Part-time,37,63,13,71.5,3.2
+2018,Computing,Part-time,63,89,21,66.6,3.6
+2020,Cybersecurity,Part-time,27,39,11,63,3.6
+2023,Cybersecurity,Part-time,43,90,25,70,3.3
+2024,Data Analytics,Part-time,49,63,5,71.4,
+2020,Data Analytics,Online,35,77,11,60.9,3
+2017,Data Analytics,Full-time,69,116,54,73.9,3.6
+2016,Data Analytics,Part-time,25,36,6,61.2,3.6
+2025,Data Analytics,Online,39,62,16,67.8,3.3
+2022,Cybersecurity,Full-time,69,110,43,68.7,3.5
+2019,Data Analytics,Part-time,47,66,24,69.5,2.8
+2017,Computing,Online,47,42,7,61.4,3.2
+2022,Computing,Full-time,111,198,59,63.4,3.8
+2018,Computing,Full-time,96,139,42,68.6,3.9
+2017,Cybersecurity,Full-time,73,104,26,73.5,3.4
+2020,Business,Part-time,43,97,30,59.2,3.4
+2021,Business,Part-time,70,105,27,66.8,2.8
+2016,Data Analytics,Full-time,65,113,33,70,3.8
+2024,Cybersecurity,Online,30,54,14,61.8,2.9
+2024,Cybersecurity,Full-time,84,132,58,62.7,3.7
+2018,Business,Online,42,49,12,68.8,3.4
+2019,Computing,Full-time,81,166,66,62.6,3.5
+2019,Computing,Part-time,46,76,25,61.6,2.9
+2021,Data Analytics,Full-time,64,131,46,71.5,4.3
+2017,Cybersecurity,Online,21,22,7,61.9,3.4
+2023,Cybersecurity,Part-time,39,87,19,71.5,3.6
+2018,Computing,Part-time,68,83,15,69.6,3.9
+2018,Business,Full-time,108,141,51,61.7,2.9
+2019,Cybersecurity,Part-time,46,54,29,70.3,3.5
+2023,Data Analytics,Full-time,92,171,63,72.3,3.4
+2019,Computing,Part-time,49,67,13,61,
+2023,Computing,Full-time,115,238,83,66,3.1
+2020,Business,Part-time,50,102,30,60.7,3.3
+2021,Data Analytics,Online,29,42,10,73.3,4.2
+2024,Cybersecurity,Full-time,74,162,67,67.3,3.9
+2019,Data Analytics,Part-time,49,79,25,66.8,3
+2023,Computing,Full-time,120,201,56,64.8,3
+2016,Computing,Full-time,87,111,41,66.8,3.3
+2023,Cybersecurity,Online,45,73,11,69,3.4
+2024,Cybersecurity,Online,39,58,13,63.1,2.9
+2021,Computing,Online,50,62,21,62.5,3.5
+2022,Data Analytics,Online,31,20,6,68.1,3.4
+2020,Business,Part-time,51,107,27,62.8,3.2
+2018,Computing,Full-time,77,131,40,69,3.7
+2023,Cybersecurity,Online,36,65,9,66.5,3.3
+2017,Business,Online,114,74,15,61.8,2.9
+2021,Data Analytics,Full-time,71,129,43,71.3,4.2
+2021,Data Analytics,Full-time,71,129,43,71.3,4.2
+2019,Computing,Full-time,95,136,53,67.7,3.5
+2020,Cybersecurity,Online,36,87,20,67.3,3.3
+2018,Cybersecurity,Online,32,42,11,69.3,3.8
+2023,Cybersecurity,Part-time,46,87,24,68,3.9
+2016,Business,Online,47,70,18,67.1,3.6
+2021,Computing,Part-time,73,137,15,69.2,3.5
+2024,Computing,Online,47,65,16,71,4.1
+2018,Cybersecurity,Part-time,28,43,8,69.5,3.6
+2018,Computing,Full-time,84,134,48,67.4,3.6
+2018,Business,Online,46,53,14,67.8,3.4
+2017,Business,Part-time,49,50,15,73.1,3.4
+2020,Cybersecurity,Part-time,24,35,10,62.2,3.7
+2020,Cybersecurity,Online,39,74,22,71.3,3.4

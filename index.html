@@ -8,6 +8,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Embedded PDF Modal */
+    .pdf-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .pdf-modal-overlay.open {
+      display: flex;
+    }
+    .pdf-modal-container {
+      width: 94%;
+      height: 92vh;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+    .pdf-modal-header {
+      padding: 14px 20px;
+      background: var(--bg-sidebar);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pdf-modal-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pdf-frame {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #525659;
+    }
+  </style>
 </head>
 <body>
 
@@ -34,11 +84,16 @@
         <span class="nav-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.4);">Nov 1</span>
       </a>
 
-      <div class="nav-section-label">Course Content</div>
+      <div class="nav-section-label">Course Materials</div>
       <a class="nav-item" href="#weeks" data-view="weeks">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
         Weekly Modules
         <span class="nav-badge">13 Wks</span>
+      </a>
+      <a class="nav-item" href="#documents" data-view="documents">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+        PDF & Files Library
+        <span class="nav-badge" style="background:rgba(59,130,246,0.2); color:var(--accent-blue);">46 Files</span>
       </a>
       <a class="nav-item" href="#transcripts" data-view="transcripts">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -47,12 +102,6 @@
       <a class="nav-item" href="#glossary" data-view="glossary">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
         Knowledge & Glossary
-      </a>
-
-      <div class="nav-section-label">Deployment</div>
-      <a class="nav-item" href="#deploy" data-view="deploy">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-        GitHub & Cloudflare
       </a>
     </nav>
 
@@ -77,18 +126,16 @@
         </button>
         <div class="search-box">
           <svg width="18" height="18" fill="none" stroke="var(--text-dim)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          <input type="text" id="global-search" placeholder="Search concepts, weeks, tasks, code...">
+          <input type="text" id="global-search" placeholder="Search concepts, weeks, tasks, code, PDFs...">
         </div>
       </div>
 
       <div class="topbar-actions">
-        <button class="btn btn-primary" onclick="openTranscriptModal()">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-          Add Notes / Transcript
-        </button>
-        <button class="btn btn-icon" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Theme">
-          <!-- Populated by JS -->
-        </button>
+        <a class="btn btn-primary" href="#documents">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+          Browse All 46 Files
+        </a>
+        <button class="btn btn-icon" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Theme"></button>
       </div>
     </header>
 
@@ -118,7 +165,900 @@
         <div id="weeks-container"></div>
       </section>
 
-      <!-- 3. CA1 Assessment Hub -->
+      <!-- 3. Course Files & PDF Library -->
+      <section id="view-documents" class="view-section">
+        <div class="section-header">
+          <div class="section-tag">Course Documents & Data Repository</div>
+          <h2 class="section-title">PDF & Files Library (All 46 Uploaded Materials)</h2>
+          <p class="section-desc">
+            Directly view or download any lecture slides, practice datasets, Jupyter notebooks, poster templates, and assessment briefs.
+          </p>
+        </div>
+
+        <!-- Filter tabs for documents -->
+        <div style="display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;">
+          <button class="btn btn-primary file-filter-btn" onclick="filterDocs('all')">All Files (46)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('Week 1')">Week 1 (9)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('Week 2')">Week 2 (5)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('Week 3')">Week 3 (8)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('Week 4')">Week 4 (11)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('Week 5')">Week 5 (9)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('Assessments')">Assessments (4)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('ext-.pdf')">PDFs Only</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('ext-.csv')">Datasets (.csv/.txt)</button>
+          <button class="btn btn-secondary file-filter-btn" onclick="filterDocs('ext-.ipynb')">Jupyter Notebooks</button>
+        </div>
+
+        <!-- Grid of all file cards -->
+        <div class="grid-3" id="files-grid">
+          
+    <div class="card file-card-item" data-week="Week 1" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Basic data types and variables.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 164.3 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Basic%20data%20types%20and%20variables.ipynb" download="Basic data types and variables.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Conditional statement.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 230.4 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Conditional%20statement.ipynb" download="Conditional statement.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Input, output, operator, and expression.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 10.3 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Input%2C%20output%2C%20operator%2C%20and%20expression.ipynb" download="Input, output, operator, and expression.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lists, tuples, and dictionary.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 14.4 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Lists%2C%20tuples%2C%20and%20dictionary.ipynb" download="Lists, tuples, and dictionary.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Module Introduction - DEP.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 363.2 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%201%20-%2014%20September%20-%2020%20September/Module%20Introduction%20-%20DEP.pdf', 'Module Introduction - DEP.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Module%20Introduction%20-%20DEP.pdf" download="Module Introduction - DEP.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week1_Python_Tutorial.docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 33.9 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Week1_Python_Tutorial.docx" download="Week1_Python_Tutorial.docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week1_Python_Tutorial.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 246.1 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%201%20-%2014%20September%20-%2020%20September/Week1_Python_Tutorial.pdf', 'Week1_Python_Tutorial.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Week1_Python_Tutorial.pdf" download="Week1_Python_Tutorial.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week1_Python_Tutorial_Solutions.docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 33.6 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Week1_Python_Tutorial_Solutions.docx" download="Week1_Python_Tutorial_Solutions.docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 1" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week_1_DEP.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 1 • 29.2 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%201%20-%2014%20September%20-%2020%20September/Week_1_DEP.ipynb" download="Week_1_DEP.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 2" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 1 - Introduction to DEP.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 2 • 409.6 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%202%20-%2021%20September%20-%2027%20September/Lecture%201%20-%20Introduction%20to%20DEP.pdf', 'Lecture 1 - Introduction to DEP.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%202%20-%2021%20September%20-%2027%20September/Lecture%201%20-%20Introduction%20to%20DEP.pdf" download="Lecture 1 - Introduction to DEP.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 2" data-ext=".pptx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📽️</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-amber); border:1px solid var(--accent-amber); font-size:0.7rem;">PowerPoint</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 1 - Introduction to DEP.pptx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 2 • 1492.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%202%20-%2021%20September%20-%2027%20September/Lecture%201%20-%20Introduction%20to%20DEP.pptx" download="Lecture 1 - Introduction to DEP.pptx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 2" data-ext=".zip" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📦</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Archive (ZIP)</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Tutorial_1.zip</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 2 • 187.0 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%202%20-%2021%20September%20-%2027%20September/Tutorial_1.zip" download="Tutorial_1.zip">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 2" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week_2_Practical.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 2 • 13.9 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%202%20-%2021%20September%20-%2027%20September/Week_2_Practical.ipynb" download="Week_2_Practical.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 2" data-ext=".txt" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">arbuthnot.txt</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 2 • 1.3 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%202%20-%2021%20September%20-%2027%20September/Database/arbuthnot.txt" download="arbuthnot.txt">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 2 - Data Management and EDA.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 625.1 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%203%20-%2028%20September%20-%204%20October/Lecture%202%20-%20Data%20Management%20and%20EDA.pdf', 'Lecture 2 - Data Management and EDA.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Lecture%202%20-%20Data%20Management%20and%20EDA.pdf" download="Lecture 2 - Data Management and EDA.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".pptx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📽️</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-amber); border:1px solid var(--accent-amber); font-size:0.7rem;">PowerPoint</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 2 - Data Management and EDA.pptx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 368.5 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Lecture%202%20-%20Data%20Management%20and%20EDA.pptx" download="Lecture 2 - Data Management and EDA.pptx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".pptx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📽️</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-amber); border:1px solid var(--accent-amber); font-size:0.7rem;">PowerPoint</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Legal, Ethical and Regulatory Constraints.pptx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 659.1 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Legal%2C%20Ethical%20and%20Regulatory%20Constraints.pptx" download="Legal, Ethical and Regulatory Constraints.pptx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".zip" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📦</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Archive (ZIP)</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week_3_DM_EDA.zip</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 639.7 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Week_3_DM_EDA.zip" download="Week_3_DM_EDA.zip">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">college_enrolment.csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 44.7 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Databases/college_enrolment.csv" download="college_enrolment.csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">titanic.csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 59.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Databases/titanic.csv" download="titanic.csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week_3_Practical.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 403.3 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Classwork/Week_3_Practical.ipynb" download="Week_3_Practical.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 3" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">college_enrolment (1).csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 3 • 44.7 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%203%20-%2028%20September%20-%204%20October/Classwork/college_enrolment%20%281%29.csv" download="college_enrolment (1).csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 3 - EDA.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 468.1 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%204%20-%205%20October%20-%2011%20October/Lecture%203%20-%20EDA.pdf', 'Lecture 3 - EDA.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Lecture%203%20-%20EDA.pdf" download="Lecture 3 - EDA.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".pptx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📽️</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-amber); border:1px solid var(--accent-amber); font-size:0.7rem;">PowerPoint</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 3 - EDA.pptx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 215.0 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Lecture%203%20-%20EDA.pptx" download="Lecture 3 - EDA.pptx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Plotting with pandas and seaborn using data.docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 702.4 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Plotting%20with%20pandas%20and%20seaborn%20using%20data.docx" download="Plotting with pandas and seaborn using data.docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".zip" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📦</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Archive (ZIP)</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week4_practical_titanic.zip</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 615.5 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Week4_practical_titanic.zip" download="Week4_practical_titanic.zip">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">titanic (2).csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 59.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/titanic%20%282%29.csv" download="titanic (2).csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Data Dictionary - titanic.docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 464.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/titanic%20dataset%20and%20data%20dictionary/Data%20Dictionary%20-%20titanic.docx" download="Data Dictionary - titanic.docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Data Dictionary - titanic.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 388.0 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%204%20-%205%20October%20-%2011%20October/titanic%20dataset%20and%20data%20dictionary/Data%20Dictionary%20-%20titanic.pdf', 'Data Dictionary - titanic.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/titanic%20dataset%20and%20data%20dictionary/Data%20Dictionary%20-%20titanic.pdf" download="Data Dictionary - titanic.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">titanic (1).csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 59.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/titanic%20dataset%20and%20data%20dictionary/titanic%20%281%29.csv" download="titanic (1).csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Data Dictionary - titanic (1).docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 464.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Classwork/Data%20Dictionary%20-%20titanic%20%281%29.docx" download="Data Dictionary - titanic (1).docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week_4_Class_Practical.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 206.4 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Classwork/Week_4_Class_Practical.ipynb" download="Week_4_Class_Practical.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 4" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">titanic (2).csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 4 • 59.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%204%20-%205%20October%20-%2011%20October/Classwork/titanic%20%282%29.csv" download="titanic (2).csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Data Cleaning - Example.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 300.7 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%205%20-%2012%20October%20-%2018%20October/Data%20Cleaning%20-%20Example.pdf', 'Data Cleaning - Example.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Data%20Cleaning%20-%20Example.pdf" download="Data Cleaning - Example.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Data Dictionary - penguin.docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 14.2 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Data%20Dictionary%20-%20penguin.docx" download="Data Dictionary - penguin.docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 4 - Data Cleaning.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 528.6 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%205%20-%2012%20October%20-%2018%20October/Lecture%204%20-%20Data%20Cleaning.pdf', 'Lecture 4 - Data Cleaning.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Lecture%204%20-%20Data%20Cleaning.pdf" download="Lecture 4 - Data Cleaning.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".pptx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📽️</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-amber); border:1px solid var(--accent-amber); font-size:0.7rem;">PowerPoint</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Lecture 4 - Data Cleaning.pptx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 332.7 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Lecture%204%20-%20Data%20Cleaning.pptx" download="Lecture 4 - Data Cleaning.pptx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Sample_Poster.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 301.6 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%205%20-%2012%20October%20-%2018%20October/Sample_Poster.pdf', 'Sample_Poster.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Sample_Poster.pdf" download="Sample_Poster.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Tutorial_GitHub_Desktop_Installation.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 297.9 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Week%205%20-%2012%20October%20-%2018%20October/Tutorial_GitHub_Desktop_Installation.pdf', 'Tutorial_GitHub_Desktop_Installation.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Tutorial_GitHub_Desktop_Installation.pdf" download="Tutorial_GitHub_Desktop_Installation.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".ipynb" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📓</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-purple); border:1px solid var(--accent-purple); font-size:0.7rem;">Jupyter Notebook</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week5_practical_penguins.ipynb</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 312.8 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Week5_practical_penguins.ipynb" download="Week5_practical_penguins.ipynb">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".zip" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📦</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-blue); border:1px solid var(--accent-blue); font-size:0.7rem;">Archive (ZIP)</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Week5_practical_penguins.zip</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 210.5 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/Week5_practical_penguins.zip" download="Week5_practical_penguins.zip">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Week 5" data-ext=".csv" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📊</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-emerald); border:1px solid var(--accent-emerald); font-size:0.7rem;">Dataset</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">penguins.csv</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Week 5 • 17.9 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Week%205%20-%2012%20October%20-%2018%20October/penguins.csv" download="penguins.csv">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Assessments" data-ext=".docx" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📝</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-rose); border:1px solid var(--accent-rose); font-size:0.7rem;">Word Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">CA1 - 40% - L7 (1).docx</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Assessments • 3481.0 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Assessments/CA1%20-%2040%25%20-%20L7%20%281%29.docx" download="CA1 - 40% - L7 (1).docx">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Assessments" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-rose); border:1px solid var(--accent-rose); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Module 4 Data Exploration and Preparation.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Assessments • 265.9 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Assessments/Module%204%20Data%20Exploration%20and%20Preparation.pdf', 'Module 4 Data Exploration and Preparation.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Assessments/Module%204%20Data%20Exploration%20and%20Preparation.pdf" download="Module 4 Data Exploration and Preparation.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Assessments" data-ext=".ppt" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📽️</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-amber); border:1px solid var(--accent-amber); font-size:0.7rem;">PowerPoint</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Poster template (Landscape) blue.ppt</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Assessments • 169.5 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Assessments/Poster%20template%20%28Landscape%29%20blue.ppt" download="Poster template (Landscape) blue.ppt">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+
+    <div class="card file-card-item" data-week="Assessments" data-ext=".pdf" style="display:flex; flex-direction:column; justify-content:space-between; padding:18px;">
+      <div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+          <span style="font-size:1.5rem;">📄</span>
+          <span class="badge" style="background:rgba(255,255,255,0.06); color:var(--accent-rose); border:1px solid var(--accent-rose); font-size:0.7rem;">PDF Document</span>
+        </div>
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:6px; line-height:1.35; word-break:break-word;">Poster template (Landscape) blue.ppt.pdf</h4>
+        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:14px;">Assessments • 117.2 KB</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-primary" style="font-size:0.75rem; padding:5px 12px;" onclick="openPdfViewer('docs/Assessments/Poster%20template%20%28Landscape%29%20blue.ppt.pdf', 'Poster template (Landscape) blue.ppt.pdf')">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Read PDF
+        </button> <a class="btn btn-secondary" style="font-size:0.75rem; padding:5px 12px; text-decoration:none;" href="docs/Assessments/Poster%20template%20%28Landscape%29%20blue.ppt.pdf" download="Poster template (Landscape) blue.ppt.pdf">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+      Download
+    </a>
+      </div>
+    </div>
+    
+        </div>
+      </section>
+
+      <!-- 4. CA1 Assessment Hub -->
       <section id="view-ca1" class="view-section">
         <div class="section-header">
           <div class="section-tag">Assessment 1 Hub</div>
@@ -130,7 +1070,7 @@
         <div id="ca1-container"></div>
       </section>
 
-      <!-- 4. Video Transcripts & Notes Hub -->
+      <!-- 5. Video Transcripts & Notes Hub -->
       <section id="view-transcripts" class="view-section">
         <div class="section-header">
           <div class="section-tag">NotebookLM & Video Knowledge</div>
@@ -142,7 +1082,7 @@
         <div id="transcripts-container"></div>
       </section>
 
-      <!-- 5. Glossary Section -->
+      <!-- 6. Glossary Section -->
       <section id="view-glossary" class="view-section">
         <div class="section-header">
           <div class="section-tag">Reference Guide</div>
@@ -153,38 +1093,25 @@
         </div>
         <div id="glossary-container"></div>
       </section>
-
-      <!-- 6. Deployment & GitHub Guide -->
-      <section id="view-deploy" class="view-section">
-        <div class="section-header">
-          <div class="section-tag">Version Control & Web Hosting</div>
-          <h2 class="section-title">Publish to GitHub & Cloudflare Pages</h2>
-          <p class="section-desc">
-            Step-by-step instructions to create your repository, push this study hub, and deploy it live with free global hosting.
-          </p>
-        </div>
-
-        <div class="card" style="margin-bottom: 24px;">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-blue);">Option A: Host via GitHub Pages (Live Online)</h3>
-          <ol style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
-            <li>Repository: <a href="https://github.com/agusv2022/cct-dep-study-hub" target="_blank" style="color:var(--accent-cyan); font-weight:700;">agusv2022/cct-dep-study-hub</a></li>
-            <li>In your GitHub repo settings, go to <strong>Pages</strong> (under "Code and automation").</li>
-            <li>Source: <strong>Deploy from a branch</strong>, branch <strong>main</strong>, folder <strong>/ (root)</strong>.</li>
-            <li>Your site is live at: <a href="https://agusv2022.github.io/cct-dep-study-hub/" target="_blank" style="color:var(--accent-emerald); font-weight:700;">https://agusv2022.github.io/cct-dep-study-hub/</a></li>
-          </ol>
-        </div>
-
-        <div class="card">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--accent-amber);">Option B: Host via Cloudflare Pages</h3>
-          <ol style="padding-left: 20px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem;">
-            <li>Log into your <a href="https://dash.cloudflare.com/" target="_blank" style="color:var(--accent-cyan);">Cloudflare Dashboard</a>.</li>
-            <li>Navigate to <strong>Workers & Pages</strong> &gt; <strong>Create application</strong> &gt; <strong>Pages</strong>.</li>
-            <li>Choose <strong>Connect to Git</strong> (select <code>cct-dep-study-hub</code>) OR <strong>Direct Upload</strong>.</li>
-            <li>Click <strong>Deploy site</strong>. Instant global CDN hosting.</li>
-          </ol>
-        </div>
-      </section>
     </main>
+  </div>
+
+  <!-- Interactive PDF Reader Modal -->
+  <div class="pdf-modal-overlay" id="pdf-modal" onclick="if(event.target===this) closePdfViewer()">
+    <div class="pdf-modal-container">
+      <div class="pdf-modal-header">
+        <h3 id="pdf-modal-title">
+          <svg width="18" height="18" fill="none" stroke="var(--accent-blue)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          Document Viewer
+        </h3>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <a class="btn btn-secondary" id="pdf-modal-open-tab" href="#" target="_blank" style="font-size:0.78rem; padding:4px 10px; text-decoration:none;">Open in Full Window</a>
+          <a class="btn btn-primary" id="pdf-modal-download" href="#" download="" style="font-size:0.78rem; padding:4px 10px; text-decoration:none;">Download File</a>
+          <button class="btn btn-icon" onclick="closePdfViewer()" style="border:none; background:transparent; font-size:1.1rem;">✕</button>
+        </div>
+      </div>
+      <iframe class="pdf-frame" id="pdf-frame" src=""></iframe>
+    </div>
   </div>
 
   <!-- Modal for Adding / Editing Notes & Transcripts -->
@@ -231,5 +1158,55 @@
 
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    // PDF Viewer Modal functions
+    function openPdfViewer(url, title) {
+      const modal = document.getElementById('pdf-modal');
+      const frame = document.getElementById('pdf-frame');
+      const titleEl = document.getElementById('pdf-modal-title');
+      const openTabEl = document.getElementById('pdf-modal-open-tab');
+      const dlEl = document.getElementById('pdf-modal-download');
+
+      if (!modal || !frame) return;
+      frame.src = url;
+      titleEl.innerHTML = `<span>📄</span> $${title}`;
+      openTabEl.href = url;
+      dlEl.href = url;
+      dlEl.download = title;
+      modal.classList.add('open');
+    }
+
+    function closePdfViewer() {
+      const modal = document.getElementById('pdf-modal');
+      const frame = document.getElementById('pdf-frame');
+      if (modal) modal.classList.remove('open');
+      if (frame) frame.src = '';
+    }
+
+    // Filter documents library
+    function filterDocs(cat) {
+      document.querySelectorAll('.file-filter-btn').forEach(btn => btn.className = 'btn btn-secondary file-filter-btn');
+      event.target.className = 'btn btn-primary file-filter-btn';
+
+      document.querySelectorAll('.file-card-item').forEach(card => {
+        if (cat === 'all') {
+          card.style.display = 'flex';
+        } else if (cat.startsWith('ext-')) {
+          const ext = cat.replace('ext-', '');
+          if (ext === '.csv') {
+            card.style.display = (card.getAttribute('data-ext') === '.csv' || card.getAttribute('data-ext') === '.txt') ? 'flex' : 'none';
+          } else {
+            card.style.display = card.getAttribute('data-ext') === ext ? 'flex' : 'none';
+          }
+        } else {
+          card.style.display = card.getAttribute('data-week') === cat ? 'flex' : 'none';
+        }
+      });
+    }
+
+    window.openPdfViewer = openPdfViewer;
+    window.closePdfViewer = closePdfViewer;
+    window.filterDocs = filterDocs;
+  </script>
 </body>
 </html>

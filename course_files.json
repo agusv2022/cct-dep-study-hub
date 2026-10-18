@@ -1,0 +1,416 @@
+[
+  {
+    "name": "Basic data types and variables.ipynb",
+    "rel": "Week 1 - 14 September - 20 September\\Basic data types and variables.ipynb",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CBasic%20data%20types%20and%20variables.ipynb",
+    "size_kb": 164.3,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Conditional statement.ipynb",
+    "rel": "Week 1 - 14 September - 20 September\\Conditional statement.ipynb",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CConditional%20statement.ipynb",
+    "size_kb": 230.4,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Input, output, operator, and expression.ipynb",
+    "rel": "Week 1 - 14 September - 20 September\\Input, output, operator, and expression.ipynb",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CInput%2C%20output%2C%20operator%2C%20and%20expression.ipynb",
+    "size_kb": 10.3,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Lists, tuples, and dictionary.ipynb",
+    "rel": "Week 1 - 14 September - 20 September\\Lists, tuples, and dictionary.ipynb",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CLists%2C%20tuples%2C%20and%20dictionary.ipynb",
+    "size_kb": 14.4,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Module Introduction - DEP.pdf",
+    "rel": "Week 1 - 14 September - 20 September\\Module Introduction - DEP.pdf",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CModule%20Introduction%20-%20DEP.pdf",
+    "size_kb": 363.2,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Week1_Python_Tutorial.docx",
+    "rel": "Week 1 - 14 September - 20 September\\Week1_Python_Tutorial.docx",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CWeek1_Python_Tutorial.docx",
+    "size_kb": 33.9,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Week1_Python_Tutorial.pdf",
+    "rel": "Week 1 - 14 September - 20 September\\Week1_Python_Tutorial.pdf",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CWeek1_Python_Tutorial.pdf",
+    "size_kb": 246.1,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Week1_Python_Tutorial_Solutions.docx",
+    "rel": "Week 1 - 14 September - 20 September\\Week1_Python_Tutorial_Solutions.docx",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CWeek1_Python_Tutorial_Solutions.docx",
+    "size_kb": 33.6,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Week_1_DEP.ipynb",
+    "rel": "Week 1 - 14 September - 20 September\\Week_1_DEP.ipynb",
+    "url": "docs/Week%201%20-%2014%20September%20-%2020%20September%5CWeek_1_DEP.ipynb",
+    "size_kb": 29.2,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 1"
+  },
+  {
+    "name": "Lecture 1 - Introduction to DEP.pdf",
+    "rel": "Week 2 - 21 September - 27 September\\Lecture 1 - Introduction to DEP.pdf",
+    "url": "docs/Week%202%20-%2021%20September%20-%2027%20September%5CLecture%201%20-%20Introduction%20to%20DEP.pdf",
+    "size_kb": 409.6,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 2"
+  },
+  {
+    "name": "Lecture 1 - Introduction to DEP.pptx",
+    "rel": "Week 2 - 21 September - 27 September\\Lecture 1 - Introduction to DEP.pptx",
+    "url": "docs/Week%202%20-%2021%20September%20-%2027%20September%5CLecture%201%20-%20Introduction%20to%20DEP.pptx",
+    "size_kb": 1492.8,
+    "ext": ".pptx",
+    "tag": "PowerPoint",
+    "week_tag": "Week 2"
+  },
+  {
+    "name": "Tutorial_1.zip",
+    "rel": "Week 2 - 21 September - 27 September\\Tutorial_1.zip",
+    "url": "docs/Week%202%20-%2021%20September%20-%2027%20September%5CTutorial_1.zip",
+    "size_kb": 187.0,
+    "ext": ".zip",
+    "tag": "Archive (ZIP)",
+    "week_tag": "Week 2"
+  },
+  {
+    "name": "Week_2_Practical.ipynb",
+    "rel": "Week 2 - 21 September - 27 September\\Week_2_Practical.ipynb",
+    "url": "docs/Week%202%20-%2021%20September%20-%2027%20September%5CWeek_2_Practical.ipynb",
+    "size_kb": 13.9,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 2"
+  },
+  {
+    "name": "arbuthnot.txt",
+    "rel": "Week 2 - 21 September - 27 September\\Database\\arbuthnot.txt",
+    "url": "docs/Week%202%20-%2021%20September%20-%2027%20September%5CDatabase%5Carbuthnot.txt",
+    "size_kb": 1.3,
+    "ext": ".txt",
+    "tag": "Dataset",
+    "week_tag": "Week 2"
+  },
+  {
+    "name": "Lecture 2 - Data Management and EDA.pdf",
+    "rel": "Week 3 - 28 September - 4 October\\Lecture 2 - Data Management and EDA.pdf",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CLecture%202%20-%20Data%20Management%20and%20EDA.pdf",
+    "size_kb": 625.1,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "Lecture 2 - Data Management and EDA.pptx",
+    "rel": "Week 3 - 28 September - 4 October\\Lecture 2 - Data Management and EDA.pptx",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CLecture%202%20-%20Data%20Management%20and%20EDA.pptx",
+    "size_kb": 368.5,
+    "ext": ".pptx",
+    "tag": "PowerPoint",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "Legal, Ethical and Regulatory Constraints.pptx",
+    "rel": "Week 3 - 28 September - 4 October\\Legal, Ethical and Regulatory Constraints.pptx",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CLegal%2C%20Ethical%20and%20Regulatory%20Constraints.pptx",
+    "size_kb": 659.1,
+    "ext": ".pptx",
+    "tag": "PowerPoint",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "Week_3_DM_EDA.zip",
+    "rel": "Week 3 - 28 September - 4 October\\Week_3_DM_EDA.zip",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CWeek_3_DM_EDA.zip",
+    "size_kb": 639.7,
+    "ext": ".zip",
+    "tag": "Archive (ZIP)",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "college_enrolment.csv",
+    "rel": "Week 3 - 28 September - 4 October\\Databases\\college_enrolment.csv",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CDatabases%5Ccollege_enrolment.csv",
+    "size_kb": 44.7,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "titanic.csv",
+    "rel": "Week 3 - 28 September - 4 October\\Databases\\titanic.csv",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CDatabases%5Ctitanic.csv",
+    "size_kb": 59.8,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "Week_3_Practical.ipynb",
+    "rel": "Week 3 - 28 September - 4 October\\Classwork\\Week_3_Practical.ipynb",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CClasswork%5CWeek_3_Practical.ipynb",
+    "size_kb": 403.3,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "college_enrolment (1).csv",
+    "rel": "Week 3 - 28 September - 4 October\\Classwork\\college_enrolment (1).csv",
+    "url": "docs/Week%203%20-%2028%20September%20-%204%20October%5CClasswork%5Ccollege_enrolment%20%281%29.csv",
+    "size_kb": 44.7,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 3"
+  },
+  {
+    "name": "Lecture 3 - EDA.pdf",
+    "rel": "Week 4 - 5 October - 11 October\\Lecture 3 - EDA.pdf",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CLecture%203%20-%20EDA.pdf",
+    "size_kb": 468.1,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Lecture 3 - EDA.pptx",
+    "rel": "Week 4 - 5 October - 11 October\\Lecture 3 - EDA.pptx",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CLecture%203%20-%20EDA.pptx",
+    "size_kb": 215.0,
+    "ext": ".pptx",
+    "tag": "PowerPoint",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Plotting with pandas and seaborn using data.docx",
+    "rel": "Week 4 - 5 October - 11 October\\Plotting with pandas and seaborn using data.docx",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CPlotting%20with%20pandas%20and%20seaborn%20using%20data.docx",
+    "size_kb": 702.4,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Week4_practical_titanic.zip",
+    "rel": "Week 4 - 5 October - 11 October\\Week4_practical_titanic.zip",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CWeek4_practical_titanic.zip",
+    "size_kb": 615.5,
+    "ext": ".zip",
+    "tag": "Archive (ZIP)",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "titanic (2).csv",
+    "rel": "Week 4 - 5 October - 11 October\\titanic (2).csv",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5Ctitanic%20%282%29.csv",
+    "size_kb": 59.8,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Data Dictionary - titanic.docx",
+    "rel": "Week 4 - 5 October - 11 October\\titanic dataset and data dictionary\\Data Dictionary - titanic.docx",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5Ctitanic%20dataset%20and%20data%20dictionary%5CData%20Dictionary%20-%20titanic.docx",
+    "size_kb": 464.8,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Data Dictionary - titanic.pdf",
+    "rel": "Week 4 - 5 October - 11 October\\titanic dataset and data dictionary\\Data Dictionary - titanic.pdf",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5Ctitanic%20dataset%20and%20data%20dictionary%5CData%20Dictionary%20-%20titanic.pdf",
+    "size_kb": 388.0,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "titanic (1).csv",
+    "rel": "Week 4 - 5 October - 11 October\\titanic dataset and data dictionary\\titanic (1).csv",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5Ctitanic%20dataset%20and%20data%20dictionary%5Ctitanic%20%281%29.csv",
+    "size_kb": 59.8,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Data Dictionary - titanic (1).docx",
+    "rel": "Week 4 - 5 October - 11 October\\Classwork\\Data Dictionary - titanic (1).docx",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CClasswork%5CData%20Dictionary%20-%20titanic%20%281%29.docx",
+    "size_kb": 464.8,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Week_4_Class_Practical.ipynb",
+    "rel": "Week 4 - 5 October - 11 October\\Classwork\\Week_4_Class_Practical.ipynb",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CClasswork%5CWeek_4_Class_Practical.ipynb",
+    "size_kb": 206.4,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "titanic (2).csv",
+    "rel": "Week 4 - 5 October - 11 October\\Classwork\\titanic (2).csv",
+    "url": "docs/Week%204%20-%205%20October%20-%2011%20October%5CClasswork%5Ctitanic%20%282%29.csv",
+    "size_kb": 59.8,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 4"
+  },
+  {
+    "name": "Data Cleaning - Example.pdf",
+    "rel": "Week 5 - 12 October - 18 October\\Data Cleaning - Example.pdf",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CData%20Cleaning%20-%20Example.pdf",
+    "size_kb": 300.7,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Data Dictionary - penguin.docx",
+    "rel": "Week 5 - 12 October - 18 October\\Data Dictionary - penguin.docx",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CData%20Dictionary%20-%20penguin.docx",
+    "size_kb": 14.2,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Lecture 4 - Data Cleaning.pdf",
+    "rel": "Week 5 - 12 October - 18 October\\Lecture 4 - Data Cleaning.pdf",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CLecture%204%20-%20Data%20Cleaning.pdf",
+    "size_kb": 528.6,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Lecture 4 - Data Cleaning.pptx",
+    "rel": "Week 5 - 12 October - 18 October\\Lecture 4 - Data Cleaning.pptx",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CLecture%204%20-%20Data%20Cleaning.pptx",
+    "size_kb": 332.7,
+    "ext": ".pptx",
+    "tag": "PowerPoint",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Sample_Poster.pdf",
+    "rel": "Week 5 - 12 October - 18 October\\Sample_Poster.pdf",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CSample_Poster.pdf",
+    "size_kb": 301.6,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Tutorial_GitHub_Desktop_Installation.pdf",
+    "rel": "Week 5 - 12 October - 18 October\\Tutorial_GitHub_Desktop_Installation.pdf",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CTutorial_GitHub_Desktop_Installation.pdf",
+    "size_kb": 297.9,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Week5_practical_penguins.ipynb",
+    "rel": "Week 5 - 12 October - 18 October\\Week5_practical_penguins.ipynb",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CWeek5_practical_penguins.ipynb",
+    "size_kb": 312.8,
+    "ext": ".ipynb",
+    "tag": "Jupyter Notebook",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "Week5_practical_penguins.zip",
+    "rel": "Week 5 - 12 October - 18 October\\Week5_practical_penguins.zip",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5CWeek5_practical_penguins.zip",
+    "size_kb": 210.5,
+    "ext": ".zip",
+    "tag": "Archive (ZIP)",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "penguins.csv",
+    "rel": "Week 5 - 12 October - 18 October\\penguins.csv",
+    "url": "docs/Week%205%20-%2012%20October%20-%2018%20October%5Cpenguins.csv",
+    "size_kb": 17.9,
+    "ext": ".csv",
+    "tag": "Dataset",
+    "week_tag": "Week 5"
+  },
+  {
+    "name": "CA1 - 40% - L7 (1).docx",
+    "rel": "Assessments\\CA1 - 40% - L7 (1).docx",
+    "url": "docs/Assessments%5CCA1%20-%2040%25%20-%20L7%20%281%29.docx",
+    "size_kb": 3481.0,
+    "ext": ".docx",
+    "tag": "Word Document",
+    "week_tag": "Assessments"
+  },
+  {
+    "name": "Module 4 Data Exploration and Preparation.pdf",
+    "rel": "Assessments\\Module 4 Data Exploration and Preparation.pdf",
+    "url": "docs/Assessments%5CModule%204%20Data%20Exploration%20and%20Preparation.pdf",
+    "size_kb": 265.9,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Assessments"
+  },
+  {
+    "name": "Poster template (Landscape) blue.ppt",
+    "rel": "Assessments\\Poster template (Landscape) blue.ppt",
+    "url": "docs/Assessments%5CPoster%20template%20%28Landscape%29%20blue.ppt",
+    "size_kb": 169.5,
+    "ext": ".ppt",
+    "tag": "PowerPoint",
+    "week_tag": "Assessments"
+  },
+  {
+    "name": "Poster template (Landscape) blue.ppt.pdf",
+    "rel": "Assessments\\Poster template (Landscape) blue.ppt.pdf",
+    "url": "docs/Assessments%5CPoster%20template%20%28Landscape%29%20blue.ppt.pdf",
+    "size_kb": 117.2,
+    "ext": ".pdf",
+    "tag": "PDF Document",
+    "week_tag": "Assessments"
+  }
+]

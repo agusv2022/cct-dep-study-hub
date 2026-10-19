@@ -118,18 +118,230 @@ const COURSE_DATA = {
       weekNumber: 2,
       calendarDates: '21 Sep - 27 Sep 2026',
       lectureNumber: 'Lecture 1: Introduction to DEP',
-      title: 'Data Fundamentals & Version Control',
+      title: 'Data Fundamentals, Taxonomy & Version Control',
       badge: 'Completed',
       status: 'completed',
-      summary: 'Distinction between raw data and actionable information. Taxonomy of data types (Categorical vs Numerical). Acquisition strategies and modern version control with Git & GitHub.',
+      summary: 'Comprehensive foundation of Data Exploration & Preparation. Covers the philosophical and operational distinction between raw data and decision-grade information, the complete taxonomy of data types (Categorical vs Numerical) which dictates all statistical choices, data lifecycle governance, primary vs secondary data sourcing, and mandatory version control standards using Git and GitHub for CA1.',
       topics: [
-        'Data vs Information: Raw observations vs context-driven meaning',
-        'Taxonomy: Categorical (Nominal vs Ordinal) and Numerical (Discrete vs Continuous)',
-        'Primary Data (surveys, sensors, experiments) vs Secondary Data (APIs, open-data portals, repositories)',
-        'What, Where, How of Data Acquisition: defining business questions before acquiring data',
-        'Git & GitHub: Repository, Commits, Branches, Push/Pull, and avoiding file sprawl'
+        'Data vs Information: The DIKW hierarchy and transforming raw observations into business insight',
+        'Tabular Dataset Anatomy: Observations (rows), Variables/Features (columns), and Tidy Data principles',
+        'Data Taxonomy: Categorical (Nominal vs Ordinal) and Numerical (Discrete vs Continuous)',
+        'Data Sourcing Trade-offs: Primary Data (first-hand) vs Secondary Data (pre-existing open/internal data)',
+        'The What, Where, How Acquisition Framework: Business questions, authoritative sources, ingestion pipelines',
+        'Ethics, GDPR & Licensing: Data minimization, anonymization of PII, and Creative Commons licensing',
+        'The 7 Stages of Data Management & The 4 Quality Pillars (Accuracy, Completeness, Consistency, Validity)',
+        'Version Control with Git & GitHub: Commits, staging, branches, and the mandatory 5-commit CA1 workflow'
       ],
-      practicalHighlights: 'Analyzing historical birth ratios from arbuthnot.txt using pandas and matplotlib; calculating ratios and plotting trends.',
+      practicalHighlights: 'Analyzing historical birth statistics from arbuthnot.txt using pandas and matplotlib: data ingestion, column inspection, ratio calculations (Boy-to-Girl ratio trends), and temporal line plotting.',
+      deepDive: {
+        lectureTitle: 'Lecture 1: Introduction to Data Exploration & Preparation',
+        lecturer: 'Dr. Muhammad Iqbal (CCT College Dublin)',
+        slidesUrl: 'docs/Week%202%20-%2021%20September%20-%2027%20September/Lecture%201%20-%20Introduction%20to%20DEP.pdf',
+        slidesName: 'Lecture 1 - Introduction to DEP.pdf',
+        executiveSummary: 'Lecture 1 establishes the theoretical and methodological bedrock for the entire Data Exploration & Preparation module and the CA1 assessment. Every practical analytical choice in exploratory data analysis—such as choosing between a bar chart or a histogram, computing a mean versus a median, selecting imputation strategies for missing values, or encoding categorical variables—stems directly from the taxonomy of data types and the data management lifecycle formalized here.',
+        sections: [
+          {
+            id: 'l1-s1',
+            title: '1. Data vs. Information (The DIKW Hierarchy)',
+            badge: 'Conceptual Core',
+            badgeColor: 'blue',
+            icon: '💡',
+            content: 'Data in its raw form consists of individual observations, symbols, unorganized characters, or numeric readings that lack inherent meaning or operational context. When raw data is cleaned, structured, aggregated, and placed within a relevant business or domain context, it transforms into Information—which subsequently empowers Knowledge and Wisdom for decision-making.',
+            comparison: {
+              colA: {
+                label: 'Raw Data (Unprocessed Observations)',
+                items: [
+                  '120, 95, 180, 240 (isolated, uncontextualized numbers)',
+                  'No units, timestamps, or operational reference points',
+                  'Cannot directly answer business or research hypotheses',
+                  'Example: Raw register readings from an IoT smart energy meter'
+                ]
+              },
+              colB: {
+                label: 'Actionable Information (Context-Driven)',
+                items: [
+                  'Mean monthly household consumption = 149 kWh (+18% vs Dec baseline)',
+                  'Enriched with temporal dimensions, currency units, and benchmarks',
+                  'Directly guides peak-load grid shedding and customer tariff optimization',
+                  'Example: Section 3 Results section of your CA1 academic poster'
+                ]
+              }
+            },
+            takeaway: 'In CA1, submitting raw counts or unformatted numbers is insufficient. You must synthesize raw data into interpreted information that addresses energy consumption patterns.'
+          },
+          {
+            id: 'l1-s2',
+            title: '2. Anatomy of a Tabular Dataset',
+            badge: 'Dataset Structure',
+            badgeColor: 'emerald',
+            icon: '📐',
+            content: 'Modern data analytics operates predominantly on two-dimensional tabular data representations where real-world systems are decomposed into two orthogonal mathematical dimensions:',
+            points: [
+              '<strong>Observations (Rows / Records / Instances / Cases):</strong> Each row represents a single distinct entity or experimental unit under study (e.g., a specific household meter reading at timestamp t, or a specific patient record). In tabular notation, N denotes the total number of observations.',
+              '<strong>Variables (Columns / Attributes / Features / Dimensions):</strong> Each column captures a measurable property, characteristic, or quantity that can vary across different observations (e.g., Household_ID, Energy_Consumption, Outside_Temperature, HVAC_Usage). In notation, p denotes the number of features.',
+              '<strong>Tidy Data Principle (Hadley Wickham):</strong> 1) Each variable must have its own column; 2) Each observation must have its own row; 3) Each value must have its own cell. Messy datasets (e.g., multiple variables packed into one header) must be reshaped into tidy structure during preparation.'
+            ]
+          },
+          {
+            id: 'l1-s3',
+            title: '3. Complete Taxonomy of Data Types (Crucial for CA1 EDA & Cleaning)',
+            badge: 'Fundamental Competency',
+            badgeColor: 'amber',
+            icon: '🏷️',
+            content: 'Every feature in your dataset belongs to a specific mathematical family. Misclassifying data types produces catastrophic analytical errors: computing averages on postal codes, generating line plots on unordered labels, or picking invalid machine learning encoders.',
+            taxonomyTable: [
+              {
+                category: 'Categorical (Qualitative)',
+                subType: 'Nominal',
+                definition: 'Discrete labels, names, or categories with NO natural mathematical order or rank. Values represent distinct qualitative groups.',
+                examples: 'Irish Counties [Dublin, Cork, Galway], Device Types [AC, Fridge, Heat Pump], Customer Churn [Yes, No], Gender',
+                allowableOps: 'Frequency counts, Mode, Percentage distributions, Chi-Square contingency tests',
+                viz: 'Bar Chart (Countplot), Pie Chart (<= 5 categories)',
+                ca1Application: 'For nominal energy variables, use value_counts() and Bar Charts. NEVER calculate mean or standard deviation on nominal labels!'
+              },
+              {
+                category: 'Categorical (Qualitative)',
+                subType: 'Ordinal',
+                definition: 'Categories possessing an unambiguous NATURAL ORDER or hierarchical ranking. However, the numeric distances between adjacent ranks are NOT quantifiable or uniform.',
+                examples: 'Customer Satisfaction [Low < Medium < High], Energy Rating [A < B < C < D < E], Education Level [BSc < MSc < PhD], Likert Scales',
+                allowableOps: 'Median, Mode, Percentiles, Rank-Order Correlation (Spearman rho, Kendall tau), Non-parametric tests',
+                viz: 'Ordered Bar Chart, Stacked Frequency Bar Plot',
+                ca1Application: 'Preserve natural ranking sequence during visualization. When encoding, use Ordinal Encoding rather than unordered One-Hot Encoding.'
+              },
+              {
+                category: 'Numerical (Quantitative)',
+                subType: 'Discrete',
+                definition: 'Countable numerical values obtained through counting. Takes distinct whole integer steps (0, 1, 2, ...); cannot take intermediate fractional values.',
+                examples: 'Number of household occupants, Count of energy consumption spikes per day, Number of connected smart devices',
+                allowableOps: 'Mean, Median, Mode, Variance, Standard Deviation, Poisson and Negative Binomial modeling',
+                viz: 'Discrete Histogram, Frequency Bar Plot, Step Plot',
+                ca1Application: 'Verify that counts are non-negative and integer-valued. Investigate zero-inflation (excessive zeros) during cleaning.'
+              },
+              {
+                category: 'Numerical (Quantitative)',
+                subType: 'Continuous',
+                definition: 'Measurable numerical values along an unbroken continuum. Can take any real value (fractions, decimals) within a defined range, limited only by measurement precision.',
+                examples: 'Energy Consumption (kWh: 3.425), Grid Voltage (V: 230.15), Ambient Temperature (°C: 18.72), Household Income (€)',
+                allowableOps: 'Mean, Median, Standard Deviation, IQR, Skewness, Kurtosis, Pearson correlation, Parametric statistical tests',
+                viz: 'Histogram with KDE curve, Boxplot, Violin Plot, Scatter Plot (Continuous vs Continuous)',
+                ca1Application: 'Primary target for IQR outlier detection, skewness assessment, and Median (if skewed) vs Mean (if symmetric) imputation.'
+              }
+            ]
+          },
+          {
+            id: 'l1-s4',
+            title: '4. Primary vs. Secondary Data Acquisition',
+            badge: 'Data Sourcing Strategy',
+            badgeColor: 'purple',
+            icon: '🌐',
+            content: 'Data acquisition is the genesis of every data project. Deciding whether to capture raw primary data or exploit existing secondary repositories carries major tradeoffs in time, budget, data quality, and provenance transparency:',
+            comparison: {
+              colA: {
+                label: 'Primary Data (First-Hand Collection)',
+                items: [
+                  '<strong>Definition:</strong> Data collected directly by the researcher/analyst for the specific analytical problem at hand.',
+                  '<strong>Methods:</strong> Field surveys, IoT hardware sensors, controlled A/B testing, user interviews, scientific laboratory experiments.',
+                  '<strong>Advantages:</strong> Tailored directly to the research hypothesis; high control over sampling design; known provenance and collection methods; maximum freshness.',
+                  '<strong>Disadvantages:</strong> Highly resource-intensive; expensive logistics and hardware; time-consuming; potential researcher sampling bias.'
+                ]
+              },
+              colB: {
+                label: 'Secondary Data (Reused Existing Data)',
+                items: [
+                  '<strong>Definition:</strong> Pre-existing data originally collected by third-party institutions, governments, or enterprises for other purposes.',
+                  '<strong>Sources:</strong> Central Statistics Office (cso.ie), data.gov.ie, Eurostat, World Bank, Kaggle, corporate ERP/CRM databases.',
+                  '<strong>Advantages:</strong> Instant accessibility; low or zero financial cost; longitudinal historical coverage; massive population scale.',
+                  '<strong>Disadvantages:</strong> Possible variable mismatch; outdated records; schema inconsistencies; unknown collection bias or unrecorded missingness mechanisms.'
+                ]
+              }
+            },
+            takeaway: 'In CA1, Smart_Home_Energy.csv is secondary data. Your academic poster must critically evaluate the quality, completeness, and potential limitations of this secondary dataset.'
+          },
+          {
+            id: 'l1-s5',
+            title: '5. The "What, Where, How" Acquisition Framework & Ethical Compliance',
+            badge: 'Methodological Framework',
+            badgeColor: 'blue',
+            icon: '🔍',
+            content: 'Before executing any code or querying databases, professional data analysts follow the structured "What, Where, How" framework while adhering to legal and ethical mandates:',
+            frameworkSteps: [
+              {
+                step: 'WHAT Data is Needed?',
+                desc: 'Strictly dictated by the Business Problem or Research Question. Define target metrics, unit of analysis (hourly vs daily), target features, and required temporal span. Avoid hoarding unneeded variables (Data Minimisation principle).'
+              },
+              {
+                step: 'WHERE Does it Reside?',
+                desc: 'Identify authoritative and legitimate data repositories: Internal relational databases (PostgreSQL, Snowflake), RESTful APIs, Government Open Data Portals (data.gov.ie), or IoT sensor data lakes.'
+              },
+              {
+                step: 'HOW Will it be Ingested?',
+                desc: 'Determine technical pipelines: Batch flat-file downloads (CSV, Parquet), programmatic API requests with rate limiting, or automated web scraping (strictly complying with robots.txt and website terms of service).'
+              }
+            ],
+            complianceChecklist: [
+              '<strong>GDPR & Data Privacy (Regulation EU 2016/679):</strong> Enforce strict data minimization. Any Personally Identifiable Information (PII) such as personal names, exact GPS coordinates, or IP addresses must be pseudorandomly hashed, aggregated, or expunged prior to analysis.',
+              '<strong>Licensing & Copyright Compliance:</strong> Always audit data usage rights. Verify whether data is licensed under Creative Commons (CC-BY, CC0), Open Data Commons, or proprietary commercial contracts that prohibit third-party publication.',
+              '<strong>Ethical Bias & Algorithmic Fairness:</strong> Screen for historical and demographic sampling biases. If training smart energy or predictive models, verify whether vulnerable low-income households or specific climate zones are under-represented.'
+            ]
+          },
+          {
+            id: 'l1-s6',
+            title: '6. The 7-Stage Data Management Lifecycle & The 4 Quality Pillars',
+            badge: 'Data Governance',
+            badgeColor: 'emerald',
+            icon: '🔄',
+            content: 'Data is a living corporate asset that progresses through a continuous 7-stage lifecycle. Throughout this cycle, analysts must uphold the 4 Pillars of Data Quality:',
+            lifecycleStages: [
+              '1. Collect (Ingestion & Capture)',
+              '2. Store (Secure persistence & warehousing)',
+              '3. Clean & Organize (Normalization, deduplication, schema validation)',
+              '4. Maintain (Version tracking & data drift monitoring)',
+              '5. Analyze (Exploratory data analysis & statistical modeling)',
+              '6. Share (Reporting, dashboards, and academic poster dissemination)',
+              '7. Archive (Long-term retention or GDPR-compliant secure purging)'
+            ],
+            qualityPillars: [
+              {
+                title: 'Accuracy',
+                desc: 'Data values must truthfully and reliably reflect the real-world phenomena they represent, free from systemic measurement bias or recording sensor errors.'
+              },
+              {
+                title: 'Completeness',
+                desc: 'All necessary observational records and required feature attributes must be present, with unobserved values systematically audited using MCAR/MAR diagnostics.'
+              },
+              {
+                title: 'Consistency',
+                desc: 'Data representations must be harmonized across all records and tables: standard datetime formats (ISO 8601: YYYY-MM-DD), uniform measurement units (kWh vs Wh), and uniform categorical naming.'
+              },
+              {
+                title: 'Validity',
+                desc: 'Values must conform strictly to defined business rules, valid ranges, and allowed data types (e.g., negative energy consumption or ages > 120 must be flagged and handled).'
+              }
+            ],
+            takeaway: 'In CA1, your Jupyter Notebook must explicitly audit and demonstrate remediation across all four quality pillars before proceeding to visualization and feature selection.'
+          },
+          {
+            id: 'l1-s7',
+            title: '7. Version Control with Git & GitHub (CA1 Mandatory Deliverable)',
+            badge: 'Engineering Standard',
+            badgeColor: 'rose',
+            icon: '🐙',
+            content: 'Version control is the bedrock of reproducible data science. It eliminates disastrous filename sprawl (e.g., "final_v2_really_done.ipynb") and provides an immutable cryptographic audit log of analytical exploration:',
+            gitConcepts: [
+              '<strong>Repository (Repo):</strong> The centralized directory tracking all project files, history, branches, and configuration.',
+              '<strong>Staging Area (git add):</strong> The deliberate staging zone where specific incremental modifications are reviewed before committing.',
+              '<strong>Commit (git commit -m "..."):</strong> A permanent snapshot of your project state accompanied by a descriptive, professional message explaining the analytical rationale.',
+              '<strong>Remote Synchronization (git push/pull):</strong> Mirroring local development to a hosted cloud repository (GitHub) for collaboration and assessment grading.'
+            ],
+            ca1GitStrategy: '<strong>CCT CA1 Rubric Requirement:</strong> You must maintain a public or lecturer-shared GitHub repository with a <strong>minimum of 5 chronological commits</strong> reflecting genuine milestone progression:<br/>' +
+              '• <em>Commit 1:</em> Repository initialization, README structure, and data directory setup.<br/>' +
+              '• <em>Commit 2:</em> Initial dataset inspection, shape, info, and summary statistics.<br/>' +
+              '• <em>Commit 3:</em> Missing value imputation, duplicate removal, and outlier detection.<br/>' +
+              '• <em>Commit 4:</em> Feature selection heatmap, correlation analysis, and polished visual figures.<br/>' +
+              '• <em>Commit 5+:</em> Final Jupyter Notebook documentation and Academic Poster presentation.'
+          }
+        ]
+      },
       keyDocuments: [
         { name: 'Lecture 1 - Introduction to DEP.pdf', path: 'Docs/Week 2 - 21 September - 27 September/Lecture 1 - Introduction to DEP.pdf' },
         { name: 'Week_2_Practical.ipynb', path: 'Docs/Week 2 - 21 September - 27 September/Week_2_Practical.ipynb' }

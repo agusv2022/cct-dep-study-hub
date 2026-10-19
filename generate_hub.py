@@ -416,7 +416,7 @@ html_template = f'''<!DOCTYPE html>
 
       if (!modal || !frame) return;
       frame.src = url;
-      titleEl.innerHTML = `<span>📄</span> $${{title}}`;
+      titleEl.innerHTML = `<span>📄</span> ${{title}}`;
       openTabEl.href = url;
       dlEl.href = url;
       dlEl.download = title;

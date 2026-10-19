@@ -288,6 +288,210 @@ function renderWeekDocsHtml(weekNum) {
   `;
 }
 
+function renderLectureDeepDiveHtml(deepDive) {
+  if (!deepDive || !deepDive.sections) return '';
+
+  const safePdfName = (deepDive.slidesName || 'Lecture Slides').replace(/'/g, "\\'");
+  const safePdfUrl = (deepDive.slidesUrl || '').replace(/'/g, "\\'");
+
+  const readPdfBtn = safePdfUrl ? `
+    <button class="btn btn-primary" style="font-size: 0.78rem; padding: 6px 14px; display: flex; align-items: center; gap: 6px;" onclick="openPdfViewer('${safePdfUrl}', '${safePdfName}')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+      Read Lecture 1 Slides (PDF)
+    </button>
+  ` : '';
+
+  return `
+    <div class="deepdive-wrapper" style="margin-top: 24px; padding: 22px; background: rgba(15, 23, 42, 0.7); border-radius: var(--radius-lg); border: 1px solid rgba(59, 130, 246, 0.3); box-shadow: 0 4px 20px rgba(0,0,0,0.25);">
+      <!-- Header banner -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge" style="background:rgba(59,130,246,0.18); color:var(--accent-blue); border:1px solid rgba(59,130,246,0.35); font-size:0.7rem;">Comprehensive Lecture Synthesis</span>
+            <span style="font-size:0.78rem; color:var(--text-dim);">${deepDive.lecturer || ''}</span>
+          </div>
+          <h4 style="font-size:1.2rem; font-weight:800; color:var(--text-main); margin-top:4px;">${deepDive.lectureTitle}</h4>
+        </div>
+        ${readPdfBtn}
+      </div>
+
+      <!-- Executive Overview -->
+      <div style="padding: 14px 18px; background: var(--bg-surface); border-radius: var(--radius-md); border-left: 4px solid var(--accent-blue); margin-bottom: 22px;">
+        <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); margin-bottom: 4px;">Executive Study Brief</div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">${deepDive.executiveSummary}</p>
+      </div>
+
+      <!-- Sections Grid / List -->
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        ${deepDive.sections.map(sec => {
+          let extraContent = '';
+
+          // 1. Comparison Box
+          if (sec.comparison) {
+            extraContent += `
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 14px;">
+                <div style="padding: 14px; background: rgba(30, 41, 59, 0.6); border-radius: var(--radius-md); border: 1px solid rgba(244, 63, 94, 0.25);">
+                  <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-rose); margin-bottom: 8px;">${sec.comparison.colA.label}</div>
+                  <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; padding: 0;">
+                    ${sec.comparison.colA.items.map(it => `<li style="font-size: 0.82rem; color: var(--text-muted); padding-left: 16px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent-rose);">•</span>${it}</li>`).join('')}
+                  </ul>
+                </div>
+                <div style="padding: 14px; background: rgba(30, 41, 59, 0.6); border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.25);">
+                  <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 8px;">${sec.comparison.colB.label}</div>
+                  <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; padding: 0;">
+                    ${sec.comparison.colB.items.map(it => `<li style="font-size: 0.82rem; color: var(--text-muted); padding-left: 16px; position: relative;"><span style="position: absolute; left: 0; color: var(--accent-emerald);">•</span>${it}</li>`).join('')}
+                  </ul>
+                </div>
+              </div>
+            `;
+          }
+
+          // 2. Taxonomy Table
+          if (sec.taxonomyTable) {
+            extraContent += `
+              <div style="overflow-x: auto; margin-top: 14px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.82rem; text-align: left;">
+                  <thead>
+                    <tr style="background: var(--bg-surface); border-bottom: 2px solid var(--border-subtle);">
+                      <th style="padding: 10px 12px; color: var(--text-main); font-weight: 700;">Type</th>
+                      <th style="padding: 10px 12px; color: var(--text-main); font-weight: 700;">Sub-Type</th>
+                      <th style="padding: 10px 12px; color: var(--text-main); font-weight: 700;">Definition</th>
+                      <th style="padding: 10px 12px; color: var(--text-main); font-weight: 700;">Examples</th>
+                      <th style="padding: 10px 12px; color: var(--text-main); font-weight: 700;">Allowable Operations & Visuals</th>
+                      <th style="padding: 10px 12px; color: var(--accent-amber); font-weight: 700;">CA1 Practical Implication</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${sec.taxonomyTable.map((row, idx) => `
+                      <tr style="border-bottom: 1px solid var(--border-subtle); background: ${idx % 2 === 0 ? 'rgba(255,255,255,0.01)' : 'rgba(255,255,255,0.03)'};">
+                        <td style="padding: 10px 12px; font-weight: 600; color: var(--accent-cyan); white-space: nowrap;">${row.category}</td>
+                        <td style="padding: 10px 12px;"><span class="badge" style="background: rgba(59,130,246,0.15); color: var(--accent-blue);">${row.subType}</span></td>
+                        <td style="padding: 10px 12px; color: var(--text-muted); min-width: 160px;">${row.definition}</td>
+                        <td style="padding: 10px 12px; color: var(--text-dim); font-family: var(--font-mono); font-size: 0.76rem; min-width: 140px;">${row.examples}</td>
+                        <td style="padding: 10px 12px; color: var(--text-muted); min-width: 150px;"><span style="color:var(--text-main); font-weight:600;">Ops:</span> ${row.allowableOps}<br/><span style="color:var(--accent-emerald); font-weight:600;">Viz:</span> ${row.viz}</td>
+                        <td style="padding: 10px 12px; color: var(--accent-amber); min-width: 170px;">${row.ca1Application}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `;
+          }
+
+          // 3. Points list
+          if (sec.points) {
+            extraContent += `
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                ${sec.points.map(pt => `
+                  <div style="font-size: 0.85rem; color: var(--text-muted); padding: 9px 14px; background: rgba(30,41,59,0.5); border-radius: var(--radius-md); border-left: 3px solid var(--accent-blue);">
+                    ${pt}
+                  </div>
+                `).join('')}
+              </div>
+            `;
+          }
+
+          // 4. Framework Steps (What, Where, How)
+          if (sec.frameworkSteps) {
+            extraContent += `
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px;">
+                ${sec.frameworkSteps.map(fs => `
+                  <div style="padding: 14px; background: rgba(30, 41, 59, 0.6); border-radius: var(--radius-md); border: 1px solid rgba(6, 182, 212, 0.25);">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 6px;">${fs.step}</div>
+                    <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">${fs.desc}</div>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+          }
+
+          // 5. Compliance Checklist
+          if (sec.complianceChecklist) {
+            extraContent += `
+              <div style="margin-top: 14px; padding: 12px 16px; background: rgba(245, 158, 11, 0.06); border-radius: var(--radius-md); border: 1px solid rgba(245, 158, 11, 0.25);">
+                <div style="font-size: 0.78rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase; margin-bottom: 8px;">Ethical & Legal Compliance Guardrails:</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  ${sec.complianceChecklist.map(cp => `
+                    <div style="font-size: 0.82rem; color: var(--text-muted);">${cp}</div>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          }
+
+          // 6. Quality Pillars
+          if (sec.qualityPillars) {
+            extraContent += `
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px;">
+                ${sec.qualityPillars.map(qp => `
+                  <div style="padding: 14px; background: rgba(30, 41, 59, 0.7); border-radius: var(--radius-md); border-top: 3px solid var(--accent-emerald);">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 4px;">${qp.title}</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">${qp.desc}</div>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+          }
+
+          // 7. Lifecycle Stages
+          if (sec.lifecycleStages) {
+            extraContent += `
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+                ${sec.lifecycleStages.map(st => `
+                  <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; padding: 5px 10px;">${st}</span>
+                `).join('')}
+              </div>
+            `;
+          }
+
+          // 8. Git Concepts & Strategy
+          if (sec.gitConcepts) {
+            extraContent += `
+              <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                ${sec.gitConcepts.map(gc => `
+                  <div style="font-size: 0.82rem; color: var(--text-muted); padding: 8px 12px; background: rgba(30, 41, 59, 0.5); border-radius: var(--radius-md); border-left: 3px solid var(--accent-rose);">
+                    ${gc}
+                  </div>
+                `).join('')}
+              </div>
+            `;
+          }
+          if (sec.ca1GitStrategy) {
+            extraContent += `
+              <div style="margin-top: 12px; padding: 12px 14px; background: rgba(244, 63, 94, 0.08); border-radius: var(--radius-md); border: 1px solid rgba(244, 63, 94, 0.25); font-size: 0.82rem; color: var(--text-main); line-height: 1.55;">
+                ${sec.ca1GitStrategy}
+              </div>
+            `;
+          }
+
+          // 9. Takeaway callout
+          if (sec.takeaway) {
+            extraContent += `
+              <div style="margin-top: 12px; padding: 10px 14px; background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-md); border-left: 3px solid var(--accent-blue); font-size: 0.83rem; color: var(--text-main);">
+                <strong>💡 Assessment Connection:</strong> ${sec.takeaway}
+              </div>
+            `;
+          }
+
+          return `
+            <div style="padding: 16px 18px; background: var(--bg-surface); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 1.15rem;">${sec.icon}</span>
+                  <h5 style="font-size: 0.98rem; font-weight: 700; color: var(--text-main); margin: 0;">${sec.title}</h5>
+                </div>
+                <span class="badge" style="font-size: 0.68rem; background: rgba(255,255,255,0.06); color: var(--accent-cyan); border: 1px solid rgba(6,182,212,0.3);">${sec.badge}</span>
+              </div>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.55;">${sec.content}</p>
+              ${extraContent}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function renderWeeklyModules() {
   const container = document.getElementById('weeks-container');
   if (!container) return;
@@ -354,6 +558,9 @@ function renderWeeklyModules() {
                 ${w.practicalHighlights}
               </p>
             ` : ''}
+
+            <!-- In-Depth Lecture Notes & Key Takeaways -->
+            ${w.deepDive ? renderLectureDeepDiveHtml(w.deepDive) : ''}
 
             <!-- Class Video Sessions & Transcripts -->
             <div class="week-section-title">
